@@ -60,14 +60,21 @@ Every section implements:
 
 ## ✦ File Structure
 /
+
 ├── index.html          # Complete site markup
+
 ├── style.css           # Full custom design system & animations
+
 ├── assets/
+
 │   ├── logo-orange.png
+
 │   ├── logo-dark.png   # Optional future theme variant
+
 │   ├── moin.png        # Portrait asset for “self” section
+
 │   └── …other images
+
 └── README.md
-code
 
 ---
