@@ -2,29 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>init — iamshift.dev</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" id="theme-color-meta">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>shift ∴ Moin — iamshift.dev</title>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;600&family=Oxanium:wght@200..800&family=Overpass+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="shift ∴ Moin" />
+  <link rel="manifest" href="/assets/favicon/site.webmanifest" />
 </head>
 <body>
-  <div class="snap-container">
-    <!-- ======================================================= -->
-    <!-- PHASE 1 - BOOT SEQUENCE                                 -->
-    <!-- ======================================================= -->
+  <div id="wallpaper"></div>
+  
+  <main class="snap-container">
     <section id="init" class="snap-section section-init">
       <div id="bootWrapper" class="boot-screen">
         <div id="bootText">
           <p class="mono boot-header-line">
-            <img src="assets/logo-orange.png" class="boot-header-logo" alt="shift logo">
+            <img src="assets/boot-header-logo.png" class="boot-header-logo" alt="shift boot logo">
             let shift : moin
           </p>
 
-          <!-- (YOUR FULL BOOT SEQUENCE, UNALTERED) -->
           <p class="mono">shiftOS 4.1 — moinKernel build M41U530.65</p>
           <p class="mono">Copyright (c) 2025 Moinuddin Ahmad. All rights reserved.</p>
           <br>
@@ -76,22 +84,17 @@
           <br>
           <p class="mono">Welcome, User.</p>
           <p class="mono">> system ready — init(shift: MoinuddinAhmad)</p>
-
+          <div class="boot-spacer"></div>
         </div>
 
-        <!-- ======================================================= -->
-        <!-- PHASE 2 — BOOT SPLASH                                   -->
-        <!-- ======================================================= -->
         <div id="brandSplash" class="boot-splash">
           <div class="boot-splash-inner">
-            <img src="assets/logo-orange.png" alt="shift logo" class="boot-logo">
+            <img src="assets/boot-logo.png" alt="shift logo" class="boot-logo">
             <div class="boot-title">
-
               <span class="bt-word bt-moin">moin</span>
               <span class="bt-word bt-colon">:</span>
               <span class="bt-word bt-shift">shift</span>
               <span class="bt-word bt-let">let</span>
-
             </div>
             <div class="boot-progress-bar">
               <div class="boot-progress-fill"></div>
@@ -100,48 +103,33 @@
         </div>
       </div>
 
-      <!-- ======================================================= -->
-      <!-- PHASE 3 — INIT SECTION                                  -->
-      <!-- ======================================================= -->
       <div class="init-center">
         <div class="init-content">
-
           <h1 class="mono headline">init</h1>
           <p class="mono init-tagline">where intent originates</p>
-
           <div class="intro-container">
-
             <p class="intro-line intro-shift">
               I am <span class="shift">shift</span> — the standard and discipline through which intent becomes action.<br>
               <span class="indent">Precision is my method, and constancy is the measure behind every decision.</span>
             </p>
-
             <p class="intro-line intro-moin">
               I am <span class="moin">Moin</span> — the origin of my intent and the source of the humanity in my work.<br>
               <span class="indent">Guidance, principle, and purpose shape how I align myself in everything I build.</span>
             </p>
-
             <p class="mono axiom">
-              shift is standard <span class="slashes slash-anim">//</span> design is craft
+              <span class="cogito-text">I'm Moin, therefore I'm shift</span>
             </p>
-
           </div>
-
         </div>
       </div>
-
     </section>
 
-    <!-- ======================================================= -->
-    <!-- CODE SECTION                                             -->
-    <!-- ======================================================= -->
     <section id="code" class="snap-section section-code anim-section">
       <div class="code-container">
         <h1 class="mono headline-code">code</h1>
         <p class="mono code-tagline">where structure meets intention</p>
 
         <div class="code-block">
-
           <div class="code-line mono">
             <div class="code-header">
               <span class="expand-arrow">›</span>
@@ -152,7 +140,6 @@
               Every function, view, and model exists to refine the relationship between logic and expression.
             </span>
           </div>
-
           <div class="code-line mono">
             <div class="code-header">
               <span class="expand-arrow">›</span>
@@ -163,7 +150,6 @@
               It keeps both the code and the interface aligned with purpose, never excess.
             </span>
           </div>
-
           <div class="code-line mono">
             <div class="code-header">
               <span class="expand-arrow">›</span>
@@ -174,7 +160,6 @@
               Both are balanced through intent — clarity keeps the system humane and maintainable.
             </span>
           </div>
-
           <div class="code-line mono">
             <div class="code-header">
               <span class="expand-arrow">›</span>
@@ -185,7 +170,6 @@
               Readable, modular structures guide creativity instead of constraining it, keeping the design flexible and precise.
             </span>
           </div>
-
           <div class="code-line mono">
             <div class="code-header">
               <span class="expand-arrow">›</span>
@@ -195,6 +179,25 @@
               From clarity comes rhythm, and from rhythm comes performance.
               It’s how creativity emerges from structure — every interaction becomes both logical and expressive.
             </span>
+          </div>
+        </div>
+
+        <div class="code-apps-block">
+          <p class="code-apps-label mono">deployed systems</p>
+          <div class="code-apps-grid">
+            <a href="#" target="_blank" class="app-link mono">
+              <span class="app-name">Guess Animals!</span>
+              <span class="app-arrow">↗</span>
+            </a>
+            <a href="#" target="_blank" class="app-link mono">
+              <span class="app-name">toDo</span>
+              <span class="app-arrow">↗</span>
+            </a>
+          </div>
+          <div class="code-profile-wrapper">
+            <a href="https://apps.apple.com/us/developer/moinuddin-ahmad/id123456789" target="_blank" class="profile-text-link mono">
+              View App Store Profile <span class="arrow">→</span>
+            </a>
           </div>
         </div>
 
@@ -209,113 +212,72 @@
       </div>
     </section>
 
-    <!-- ======================================================= -->
-    <!-- PIXEL SECTION                                           -->
-    <!-- ======================================================= -->
     <section id="pixel" class="snap-section section-pixel anim-section">
       <div class="pixel-bg"></div>
-
       <div class="pixel-container">
         <h1 class="mono headline-pixel">pixel</h1>
-
-        <p class="mono pixel-tagline">
-          where clarity becomes visible
-        </p>
-
+        <p class="mono pixel-tagline">where clarity becomes visible</p>
         <p class="pixel-intent">
           Design is how I give structure character — form guided by clarity, expression shaped by intent.
         </p>
 
         <div class="code-block pixel-block">
-
-          <!-- 1. Interface systems -->
           <div class="code-line pixel-line mono">
             <div class="code-header pixel-header">
               <span class="expand-arrow">›</span>
-              <span class="code-main pixel-main">
-                Interface systems — grids • rhythm • flow
-              </span>
+              <span class="code-main pixel-main">Interface systems — grids • rhythm • flow</span>
             </div>
             <span class="code-detail pixel-detail">
               I design interfaces with spatial logic: grids that create order, rhythm that guides flow, and constraints that produce clarity.
               Every surface should orient the user without shouting — guidance through alignment, hierarchy, and pacing.
             </span>
           </div>
-
-          <!-- 2. Interaction & motion -->
           <div class="code-line pixel-line mono">
             <div class="code-header pixel-header">
               <span class="expand-arrow">›</span>
-              <span class="code-main pixel-main">
-                Interaction &amp; motion — feedback that feels inevitable
-              </span>
+              <span class="code-main pixel-main">Interaction &amp; motion — feedback that feels inevitable</span>
             </div>
             <span class="code-detail pixel-detail">
               I use motion to reinforce meaning: easing as communication, timing as emphasis, and transitions that feel like the only reasonable outcome.
               Movement exists only to support clarity — never spectacle.
             </span>
           </div>
-
-          <!-- 3. Visual language -->
           <div class="code-line pixel-line mono">
             <div class="code-header pixel-header">
               <span class="expand-arrow">›</span>
-              <span class="code-main pixel-main">
-                Visual language — typography • tone • identity
-              </span>
+              <span class="code-main pixel-main">Visual language — typography • tone • identity</span>
             </div>
             <span class="code-detail pixel-detail">
               Visual systems begin with type: scale, contrast, and pacing that define how a product speaks before it communicates.
               I design visual languages that express identity without ornament — grounded in restraint, guided by clarity, shaped by intent.
             </span>
           </div>
-
         </div>
 
-        <!-- SOCIAL LINKS ROW -->
         <div class="pixel-social-links mono">
-          <a href="https://dribbble.com/iamshift" class="pixel-social-link dribbble" target="_blank" rel="noopener noreferrer">dribbble</a>
-          <span class="dot">•</span>
-
-          <a href="https://www.behance.net/iamshift" class="pixel-social-link behance" target="_blank" rel="noopener noreferrer">behance</a>
-          <span class="dot">•</span>
-
-          <a href="https://500px.com/iamshift" class="pixel-social-link px500" target="_blank" rel="noopener noreferrer">500px</a>
-          <span class="dot">•</span>
-
-          <a href="https://www.instagram.com/iamshift.dev" class="pixel-social-link instagram" target="_blank" rel="noopener noreferrer">instagram</a>
+          <a href="https://dribbble.com/iamshift" target="_blank" class="social-icon" data-label="Dribbble"><i class="ri-dribbble-line"></i></a>
+          <a href="https://www.behance.net/iamshift" target="_blank" class="social-icon" data-label="Behance"><i class="ri-behance-line"></i></a>
+          <a href="https://500px.com/iamshift" target="_blank" class="social-icon" data-label="500px"><i class="ri-camera-lens-line"></i></a>
+          <a href="https://www.instagram.com/iamshift.dev" target="_blank" class="social-icon" data-label="Instagram"><i class="ri-instagram-line"></i></a>
         </div>
       </div>
-
       <div class="pixel-spark-viewport"></div>
     </section>
 
-    <!-- ======================================================= -->
-    <!-- ECHO SECTION                                            -->
-    <!-- ======================================================= -->
     <section id="echo" class="snap-section section-echo anim-section">
-
       <div class="echo-container">
-
         <h1 class="mono headline-echo">echo</h1>
-
-        <p class="mono echo-tagline">
-          where intention becomes narrative
-        </p>
-
+        <p class="mono echo-tagline">where intention becomes narrative</p>
         <p class="echo-intent">
           I write to clarify what I build — to articulate the decisions, patterns, and principles that shape my work.
           Every reflection is an attempt to make the implicit explicit, to understand how craft becomes form and how intent becomes experience.
         </p>
 
         <div class="code-block echo-block">
-
           <div class="code-line echo-line mono">
             <div class="code-header echo-header">
               <span class="expand-arrow">›</span>
-              <span class="code-main echo-main">
-                Product clarity — decisions shape experience
-              </span>
+              <span class="code-main echo-main">Product clarity — decisions shape experience</span>
             </div>
             <span class="code-detail echo-detail">
               Every choice in a product communicates something — priority, intent, rhythm, friction, possibility.
@@ -323,13 +285,10 @@
               It’s where structure meets empathy.
             </span>
           </div>
-
           <div class="code-line echo-line mono">
             <div class="code-header echo-header">
               <span class="expand-arrow">›</span>
-              <span class="code-main echo-main">
-                Design &amp; language — communication through pattern
-              </span>
+              <span class="code-main echo-main">Design &amp; language — communication through pattern</span>
             </div>
             <span class="code-detail echo-detail">
               Design is a language long before it is an interface.
@@ -337,13 +296,10 @@
               I write about how language shapes design — and how clarity shapes both.
             </span>
           </div>
-
           <div class="code-line echo-line mono">
             <div class="code-header echo-header">
               <span class="expand-arrow">›</span>
-              <span class="code-main echo-main">
-                Engineering reflections — precision as practice
-              </span>
+              <span class="code-main echo-main">Engineering reflections — precision as practice</span>
             </div>
             <span class="code-detail echo-detail">
               Engineering is intention expressed through constraints.
@@ -352,13 +308,10 @@
               Precision is not a luxury; it’s the foundation.
             </span>
           </div>
-
           <div class="code-line echo-line mono">
             <div class="code-header echo-header">
               <span class="expand-arrow">›</span>
-              <span class="code-main echo-main">
-                Craft &amp; discipline — the work behind the work
-              </span>
+              <span class="code-main echo-main">Craft &amp; discipline — the work behind the work</span>
             </div>
             <span class="code-detail echo-detail">
               Craft is built through repetition, restraint, clarity, and care.
@@ -366,85 +319,68 @@
               not just the work itself.
             </span>
           </div>
-
         </div>
 
         <div class="echo-social-links mono">
-          <a href="https://iamshift.substack.com" target="_blank" class="echo-social-link substack">substack</a>
-          <span class="dot">•</span>
-          <a href="https://mastodon.social/@iamshift" target="_blank" class="echo-social-link mastodon">mastodon</a>
-          <span class="dot">•</span>
-          <a href="https://bsky.app/profile/iamshift.dev" target="_blank" class="echo-social-link bluesky">bluesky</a>
+          <a href="https://iamshift.substack.com" class="social-icon" target="_blank" data-label="Substack"><i class="ri-article-line"></i></a>
+          <a href="https://mastodon.social/@iamshift" class="social-icon" target="_blank" data-label="Mastodon"><i class="ri-mastodon-line"></i></a>
+          <a href="https://bsky.app/profile/iamshift.dev" class="social-icon" target="_blank" data-label="Bluesky"><i class="ri-bluesky-line"></i></a>
         </div>
-
       </div>
-
     </section>
 
-    <!-- ======================================================= -->
-    <!-- SELF SECTION                                            -->
-    <!-- ======================================================= -->
     <section id="self" class="snap-section section-self">
       <div class="self-container">
 
         <div class="self-header">
           <h1 class="headline-self mono">self</h1>
-          <p class="self-tagline mono">identity • principle • <em>the man behind the curtain</em></p>
+          <p class="self-tagline mono">identity • principle • <em>the architect</em></p>
         </div>
 
         <div class="self-content">
-
-          <!-- Profile Image -->
-          <div class="self-photo">
-            <img src="assets/moin.png" alt="Moinuddin Ahmad portrait">
+          <div class="self-left-col">
+            <div class="self-photo">
+              <img src="assets/moin.png" alt="Moinuddin Ahmad">
+            </div>
+            <p class="self-minor-blurb mono">
+              Designer &amp; Engineer<br>
+              Apple Ecosystem
+            </p>
           </div>
 
-          <!-- Main Text Column -->
-          <div class="self-text">
-
+          <div class="self-right-col">
             <p class="self-intro">
-              My work begins with intent — shaped by principle, refined through discipline.  
-              Clarity guides how I design, precision defines how I build.
+              I am <strong>Moinuddin Ahmad</strong>, a designer and engineer building within the Apple ecosystem. 
+              I unite rigorous logic with intuitive design.
             </p>
 
-            <p class="self-block-title mono">about <strong>moin</strong></p>
+            <p class="self-block-title mono">the principle</p>
             <p class="self-body">
-              I’m Moinuddin Ahmad, a designer+developer creating thoughtful, intentional experiences across the Apple ecosystem.
-              My background blends engineering and design, allowing me to build systems and interfaces with equal fluency.
-              I value clarity, purpose, and the pursuit of mastery.
+              <strong>shift</strong> is the discipline that manifests intent into precision and surgical action.
+              I design through reduction and build through iteration, ensuring that every pixel and every line of code serves a definitive purpose.
             </p>
 
-            <p class="self-block-title mono">about <strong>shift</strong></p>
+            <p class="self-block-title mono">the stack</p>
             <p class="self-body">
-              shift is the constant, the standard and discipline through which intent becomes action.
-              It underlines every decision I make, and it shapes the way I approach design, engineering, and craft.
+              Mastery of Swift, SwiftUI, and system architecture grants me total control over the product cycle. 
+              From abstract concept to final release, I engineer systems that remain resilient and interfaces that perform seamlessly.
             </p>
+          </div>
 
-            <p class="self-block-title mono">process</p>
-            <p class="self-body">
-              I think through structure, design through reduction, and build through iteration.
-              My process is grounded in clarity, guided by intent, and measured through precision.
-            </p>
-
-            <p class="self-block-title mono">technical background</p>
-            <p class="self-body">
-              I build using Swift, SwiftUI, and modern Apple frameworks, for Apple's platforms.
-              My experience spans system architecture, interface design, animations, accessibility, persistence, performance tuning, and full-cycle product development from concept to release.
-            </p>
-
+          <div class="self-footer">
             <p class="self-contact mono">
-              Got an idea? Need someone to build it?<br>
-              Let's connect, below.
+              Precision is my method. Clarity is my outcome.<br>
+              Let's build something definitive.
             </p>
+            <a href="#ping" class="self-cta-link mono" onclick="scrollToSectionId('ping'); return false;">
+              initiate connection <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
 
-          </div><!-- /self-text -->
-        </div><!-- /self-content -->
-      </div><!-- /self-container -->
+      </div>
     </section>
 
-    <!-- ======================================================= -->
-    <!-- PING SECTION                                            -->
-    <!-- ======================================================= -->
     <section id="ping" class="snap-section section-ping">
       <div class="ping-container">
 
@@ -461,10 +397,8 @@
             Whether for collaboration, inquiry, or simple signal verification — I am listening.
           </p>
 
-          <!-- Connection Grid -->
           <div class="ping-grid">
 
-            <!-- 1. Availability (New) -->
             <div class="ping-item">
               <div class="ping-label mono">system status</div>
               <div class="ping-stat mono">
@@ -473,7 +407,6 @@
               <span class="ping-sub">Open for new collaborations</span>
             </div>
 
-            <!-- 2. Direct Line -->
             <div class="ping-item">
               <div class="ping-label mono">transmission protocol</div>
               <a href="mailto:init@iamshift.dev" class="ping-link mono">
@@ -482,30 +415,26 @@
               <span class="ping-sub">For project inquiries &amp; architecture</span>
             </div>
 
-            <!-- 3. Location / Time -->
             <div class="ping-item">
               <div class="ping-label mono">origin point</div>
               <div class="ping-stat mono">
                 New York, NY <span class="dim">(USA)</span>
               </div>
               <span class="ping-sub">
-                <span class="ping-key">Timezone:</span> US Central Time (UTC-06:00)
+                <span class="ping-key">Timezone:</span> US Eastern Time (UTC-05:00)
               </span>
             </div>
 
           </div>
 
-          <!-- Social Array (Moved from Self) -->
           <div class="ping-social-array mono">
-           <a href="https://bsky.app/profile/iamshift.dev" target="_blank" class="ping-social bluesky">bluesky</a>
-           <span class="dot">•</span>
-           <a href="https://mastodon.social/@iamshift" target="_blank" class="ping-social mastodon">mastodon</a>
-           <span class="dot">•</span>
-           <a href="https://iamshift.substack.com" target="_blank" class="ping-social substack">substack</a>
-           <span class="dot">•</span>
-           <a href="https://www.instagram.com/iamshift.dev" target="_blank" class="ping-social instagram">instagram</a>
-         </div>
-
+            <a href="https://bsky.app/profile/iamshift.dev" class="social-icon" target="_blank" data-label="Bluesky"><i class="ri-bluesky-line"></i></a>
+            <a href="https://mastodon.social/@iamshift" class="social-icon" target="_blank" data-label="Mastodon"><i class="ri-mastodon-line"></i></a>
+            <a href="https://iamshift.substack.com" class="social-icon" target="_blank" data-label="Substack"><i class="ri-article-line"></i></a>
+            <a href="https://www.instagram.com/iamshift.dev" class="social-icon" target="_blank" data-label="Instagram"><i class="ri-instagram-line"></i></a>
+          </div>
+        </div>
+        <div class="ping-bg-wrapper">
          <div class="ping-rings">
           <div class="ping-ring"></div>
           <div class="ping-ring"></div>
@@ -513,472 +442,407 @@
           <div class="ping-ring"></div>
         </div>
       </div>
+    </section>
+  </main>
+
+  <div class="global-header" onclick="scrollToSectionId('init')" style="cursor: pointer;">
+    <div class="global-logo-container">
+      <img src="assets/logo-orange.png" class="global-logo-img spin-target" alt="shift logo">
     </div>
-  </section>
- </main>
-
-<!-- ======================================================= -->
-<!-- SIDE NAVIGATION                                          -->
-<!-- ======================================================= -->
-
-<!-- 2. GLOBAL LOGO (Badge Container) -->
-<div class="global-logo-container">
-  <img src="assets/logo-orange.png" class="global-logo-img spin-target" alt="shift logo">
-</div>
-
-<div class="site-title-wrap">
-  <div class="site-title">
-    <span class="g-word-let">let</span>
-    <span class="g-word-shift">shift</span>
-    <span class="g-word-colon">:</span>
-    <span class="g-word-moin">moin</span>
+    <div class="site-title-wrap">
+      <div class="site-title">
+        <span class="g-word-let">let</span>
+        <span class="g-word-shift">shift</span>
+        <span class="g-word-colon">:</span>
+        <span class="g-word-moin">moin</span>
+      </div>
+    </div>
   </div>
-</div>
 
-<nav id="sideNav" class="side-nav">
-  <ul>
-    <li data-section="init" class="active" data-tooltip="init"></li>
-    <li data-section="code" data-tooltip="code"></li>
-    <li data-section="pixel" data-tooltip="pixel"></li>
-    <li data-section="echo" data-tooltip="echo"></li>
-    <li data-section="self" data-tooltip="self"></li>
-    <li data-section="ping" data-tooltip="ping"></li>
-  </ul>
-</nav>
+  <nav id="sideNav" class="side-nav">
+    <div class="nav-arrow nav-arrow-up" aria-label="Previous Section" data-tooltip="Previous">
+      <i class="ri-arrow-up-line"></i>
+    </div>
+    <ul>
+      <li data-section="init" class="active" data-tooltip="init"></li>
+      <li data-section="code" data-tooltip="code"></li>
+      <li data-section="pixel" data-tooltip="pixel"></li>
+      <li data-section="echo" data-tooltip="echo"></li>
+      <li data-section="self" data-tooltip="self"></li>
+      <li data-section="ping" data-tooltip="ping"></li>
+    </ul>
+    <div class="nav-arrow nav-arrow-down" aria-label="Next Section" data-tooltip="Next">
+      <i class="ri-arrow-down-line"></i>
+    </div>
+  </nav>
 
-<div class="scroll-cue mono">scroll ↓</div>
+  <script>
+    // --------------------------------------------------------
+    // ELEMENT REFERENCES
+    // --------------------------------------------------------
+    const snapContainer = document.querySelector(".snap-container");
+    const bootWrapper   = document.getElementById("bootWrapper");
+    const bootText      = document.getElementById("bootText");
+    const siteTitle     = document.querySelector(".site-title");
+    const brandSplash   = document.getElementById("brandSplash");
+    const sideNav       = document.getElementById("sideNav");
+    const globalLogoContainer = document.querySelector(".global-logo-container");
 
-<!-- ======================================================= -->
-<!-- JAVASCRIPT                                               -->
-<!-- ======================================================= -->
-<script>
-  // --------------------------------------------------------
-  // ELEMENT REFERENCES
-  // --------------------------------------------------------
-  const snapContainer = document.querySelector(".snap-container");
-  const bootWrapper   = document.getElementById("bootWrapper");
-  const bootText      = document.getElementById("bootText");
-  const siteTitle     = document.querySelector(".site-title");
-  const brandSplash   = document.getElementById("brandSplash");
-  const landing       = document.getElementById("landing");
-  const scrollCue     = document.querySelector(".scroll-cue");
-  const sideNav       = document.getElementById("sideNav");
-  const globalLogoContainer = document.querySelector(".global-logo-container");
+    const sections   = document.querySelectorAll(".snap-section");
+    const navItems   = document.querySelectorAll(".side-nav li");
+    const sectionIds = Array.from(sections).map(sec => sec.id);
 
-  // Sections + nav dots for later
-  const sections   = document.querySelectorAll(".snap-section");
-  const navItems   = document.querySelectorAll(".side-nav li");
-  const sectionIds = Array.from(sections).map(sec => sec.id);
+    let bootFinished = false;
 
-  let bootFinished = false;
+    // Initial Lock
+    if (snapContainer) snapContainer.classList.add("boot-lock");
+    if (bootWrapper)   bootWrapper.scrollTop = 0;
 
-  // if (siteTitle) {
-  //   siteTitle.style.opacity = "0";
-  //   siteTitle.style.transform = "translateY(-50%) translateX(-42px)";
-  // }
+    // --------------------------------------------------------
+    // BOOT SEQUENCE
+    // --------------------------------------------------------
+    const bootLines = bootText.querySelectorAll("p, br");
+    let delay = 200;
+    let total = 0;
 
-  // Lock scroll during boot
-  if (snapContainer) snapContainer.classList.add("boot-lock");
-  if (bootWrapper)   bootWrapper.scrollTop = 0;
+    bootLines.forEach((line) => {
+      setTimeout(() => {
+        line.classList.add("visible");
+        if (bootWrapper) {
+          const needsScroll = bootWrapper.scrollHeight > bootWrapper.clientHeight + 5;
+          if (needsScroll) bootWrapper.scrollTop = bootWrapper.scrollHeight;
+        }
+      }, total);
 
-  // --------------------------------------------------------
-  // BOOT SEQUENCE — LINE BY LINE
-  // --------------------------------------------------------
-  const bootLines = bootText.querySelectorAll("p, br");
-  let delay = 200;
-  let total = 0;
-
-  bootLines.forEach((line) => {
-    setTimeout(() => {
-      line.classList.add("visible");
-
-      const needsScroll =
-      bootWrapper.scrollHeight > bootWrapper.clientHeight + 5;
-
-      if (needsScroll) {
-        bootWrapper.scrollTop = bootWrapper.scrollHeight;
-      }
-    }, total);
-
-    const txt = line.innerText.trim();
-    total += delay;
-
-    if (txt.startsWith("Copyright"))   total += 900;
-    if (txt.startsWith("[ INIT ]"))    total += 300; //1000
-    if (txt.startsWith("[ OK ]"))      total += 80;
-    if (txt.startsWith("[ VERIFY ]"))  total += 250; //650
-  });
-
-  // --------------------------------------------------------
-  // PHASES TIMING
-  // --------------------------------------------------------
-  const powerDownTime = total + 2000;
-  // Phase 2: brand splash pause duration (existing pause + 0.8s)
-  const showInitDelay = 2200;
-  const splashDuration = showInitDelay + 1800;
-
-  // Phase 2 — show centered logo + title on black
-  const bootTopLeftLogo = document.querySelector('.boot-topleft-logo');
-  if (bootTopLeftLogo) {
-    bootTopLeftLogo.style.display = "block";
-  }
-
-  function startBrandSplash() {
-    if (bootText) {
-      bootText.style.display = "none";
-    }
-    if (brandSplash) {
-      brandSplash.classList.add("show");
-    }
-
-    // Animate ALL boot words, not just the first
-    const words = document.querySelectorAll(".bt-word");
-
-    words.forEach((word) => {
-      word.classList.remove("animate");   // reset
-      void word.offsetWidth;              // force reflow
-      word.classList.add("animate");      // restart staggered animation
+      const txt = line.innerText.trim();
+      total += delay;
+      if (txt.startsWith("Copyright"))   total += 900;
+      if (txt.startsWith("[ INIT ]"))    total += 300; 
+      if (txt.startsWith("[ OK ]"))      total += 80;
+      if (txt.startsWith("[ VERIFY ]"))  total += 250; 
     });
 
-    // Start progress bar fill
-    const progressFill = document.querySelector(".boot-progress-fill");
-    if (progressFill) {
-      progressFill.style.width = "100%";
+    const powerDownTime = total + 2000;
 
-      // Flash to white right when bar completes
-      setTimeout(() => {
-        progressFill.classList.add("completed");
-      }, 3300); // matches the 3s fill transition
-    }
-
-    document.querySelector('.boot-topleft-logo').style.display = 'none';
-  }
-
-  // Phase 3 — boot overlay "turns off" (no fade) and init appears
-  function finishBoot() {
-    if (bootFinished) return;
-
-    bootWrapper.style.display = "none";
-    if (brandSplash) brandSplash.style.display = "none";
-
-    // FORCE REFLOW BEFORE SHOWING GLOBAL LOGO
-    void globalLogoContainer.offsetWidth;
-    globalLogoContainer.classList.add("show");
-
-    // Trigger global title animation only after logo is visible
-    setTimeout(() => {
-      const letWord   = document.querySelector('.g-word-let');
-      const shiftWord = document.querySelector('.g-word-shift');
-      const colonWord = document.querySelector('.g-word-colon');
-      const moinWord  = document.querySelector('.g-word-moin');
-
-      if (letWord)   letWord.style.animation   = "gLetFadeLift 0.45s ease-out forwards";
-      if (shiftWord) shiftWord.style.animation = "gFadeLeft 0.45s ease-out forwards 0.25s";
-      if (colonWord) colonWord.style.animation = "gFadeLeft 0.45s ease-out forwards 0.50s";
-      if (moinWord)  moinWord.style.animation  = "gFadeLeft 0.45s ease-out forwards 0.75s";
-    }, 100); // run after layout stabilizes
-
-    document.getElementById("init").classList.add("show");
-    // landing.classList.add("show");
-
-    const initSection = document.getElementById("init");
-    if (initSection) {
-      initSection.classList.add("show");
-    }
-
-    scrollCue.classList.add("show");
-    sideNav.classList.add("show");
-
-    snapContainer.classList.remove("boot-lock");
-    bootFinished = true;
-
-    startObservers();
-  }
-
-    // Timed transitions — Phase 1 → 2 → 3
-  const splashTimeout = setTimeout(() => {
-    startBrandSplash();
-  }, powerDownTime);
-
-  // Listen for completion of the FINAL boot splash word ("let")
-  const lastWord = document.querySelector(".bt-let");
-
-  if (lastWord) {
-    lastWord.addEventListener("animationend", () => {
-    // Add a little extra viewing time for the user
-      setTimeout(() => {
-        finishBoot();
-    }, 3300); // <-- Adjust reading buffer here
-    }, { once: true });
-  }
-
-  // --------------------------------------------------------
-    // SPACE BAR → SKIP BOOT
-  // --------------------------------------------------------
-  window.addEventListener("keydown", (e) => {
-    if (!bootFinished && (e.code === "Space" || e.key === " ")) {
-      e.preventDefault();
-
-      // Cancel Phase 1 auto-timers
-      if (typeof splashTimeout !== "undefined") clearTimeout(splashTimeout)
-
-      // Skip only the boot text; still show Phase 2 splash
-        startBrandSplash();
-
-      // After a full splash duration, proceed to Phase 3
-      // setTimeout(() => {
-      //   finishBoot();
-      // }, splashDuration);
+    function startBrandSplash() {
+      if (bootText) bootText.style.display = "none";
+      if (brandSplash) brandSplash.classList.add("show");
 
       const words = document.querySelectorAll(".bt-word");
-      words.forEach(word => {
-        word.classList.remove("animate");
-        void word.offsetWidth; // force reflow
-        word.classList.add("animate");
+      words.forEach((word) => {
+        word.classList.remove("animate");   
+        void word.offsetWidth;              
+        word.classList.add("animate");      
       });
+
+      const progressFill = document.querySelector(".boot-progress-fill");
+      if (progressFill) {
+        progressFill.style.width = "100%";
+        setTimeout(() => {
+          progressFill.classList.add("completed");
+        }, 3300);
+      }
     }
-  });
 
-  // --------------------------------------------------------
-  // NAV + KEYBOARD HELPERS (unchanged)
-  // --------------------------------------------------------
+    function finishBoot() {
+      if (bootFinished) return;
 
-  // --------------------------------------------------------
-  // KEYBOARD NAVIGATION (AFTER BOOT)
-  //   j / ArrowDown      → next section
-  //   k / ArrowUp        → previous section
-  //   Space              → next section
-  //   Shift + Space      → previous section
-  // --------------------------------------------------------
+      if (bootWrapper) bootWrapper.style.display = "none";
+      if (brandSplash) brandSplash.style.display = "none";
 
-  function scrollToSectionId(id) {
-    const target = document.getElementById(id);
-    if (!target) return;
-    target.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
+      // IMMEDIATE THEME FIX
+      document.body.classList.add("theme-init");
+      document.documentElement.style.backgroundColor = "#ff4e00"; 
+      const meta = document.getElementById("theme-color-meta");
+      if (meta) meta.setAttribute("content", "#ff4e00");
+
+      if (globalLogoContainer) {
+        void globalLogoContainer.offsetWidth; 
+        globalLogoContainer.classList.add("show");
+      }
+
+      // FIX: Reveal Header Title
+      if (siteTitle) siteTitle.classList.add("show");
+
+      // FIX: APPLY CONTENT MASK
+      if (snapContainer) snapContainer.classList.add("masked");
+
+      setTimeout(() => {
+        const letWord   = document.querySelector('.g-word-let');
+        const shiftWord = document.querySelector('.g-word-shift');
+        const colonWord = document.querySelector('.g-word-colon');
+        const moinWord  = document.querySelector('.g-word-moin');
+
+        if (letWord)   letWord.style.animation   = "gLetFadeLift 0.45s ease-out forwards";
+        if (shiftWord) shiftWord.style.animation = "gFadeLeft 0.45s ease-out forwards 0.25s";
+        if (colonWord) colonWord.style.animation = "gFadeLeft 0.45s ease-out forwards 0.50s";
+        if (moinWord)  moinWord.style.animation  = "gFadeLeft 0.45s ease-out forwards 0.75s";
+      }, 100);
+
+      const initSection = document.getElementById("init");
+      if (initSection) initSection.classList.add("show");
+
+      if (sideNav) sideNav.classList.add("show");
+      if (snapContainer) snapContainer.classList.remove("boot-lock");
+      
+      bootFinished = true;
+      
+      // START COGITO LOOP
+      startCogitoLoop();
+      
+      // START OBSERVERS
+      startObservers();
+    }
+
+    const splashTimeout = setTimeout(() => {
+      startBrandSplash();
+    }, powerDownTime);
+
+    const lastWord = document.querySelector(".bt-let");
+    if (lastWord) {
+      lastWord.addEventListener("animationend", () => {
+        setTimeout(() => { finishBoot(); }, 3300); 
+      }, { once: true });
+    }
+
+    window.addEventListener("keydown", (e) => {
+      if (!bootFinished && (e.code === "Space" || e.key === " ")) {
+        e.preventDefault();
+        if (typeof splashTimeout !== "undefined") clearTimeout(splashTimeout);
+        startBrandSplash();
+      }
     });
-  }
 
-  function getCurrentSectionIndex() {
-    const activeDot = document.querySelector(".side-nav li.active");
-    if (!activeDot) return 0;
-    const activeId = activeDot.getAttribute("data-section");
-    const idx = sectionIds.indexOf(activeId);
-    return idx === -1 ? 0 : idx;
-  }
+    window.addEventListener("touchstart", (e) => {
+      if (!bootFinished) {
+        if (typeof splashTimeout !== "undefined") clearTimeout(splashTimeout);
+        startBrandSplash();
+      }
+    }, { passive: false });
 
-  window.addEventListener("keydown", (e) => {
-    if (!bootFinished) return;
+    // --------------------------------------------------------
+    // COGITO TEXT LOOP
+    // --------------------------------------------------------
+    function startCogitoLoop() {
+      const cogitoText = document.querySelector(".cogito-text");
+      if (!cogitoText) return;
 
-    const isSpace = (e.code === "Space" || e.key === " ");
-    const isNext =
-    e.code === "ArrowDown" ||
-    e.key === "j" ||
-    (isSpace && !e.shiftKey);
+      const phrases = [
+        "I'm Moin, therefore I'm shift",
+        "I'm shift, therefore I'm Moin"
+      ];
+      let index = 0;
 
-    const isPrev =
-    e.code === "ArrowUp" ||
-    e.key === "k" ||
-    (isSpace && e.shiftKey);
-
-    if (isNext) {
-      e.preventDefault();
-      const current = getCurrentSectionIndex();
-      const next = Math.min(sectionIds.length - 1, current + 1);
-      scrollToSectionId(sectionIds[next]);
-    } else if (isPrev) {
-      e.preventDefault();
-      const current = getCurrentSectionIndex();
-      const prev = Math.max(0, current - 1);
-      scrollToSectionId(sectionIds[prev]);
+      setInterval(() => {
+        cogitoText.classList.add("fade-out");
+        
+        setTimeout(() => {
+          index = (index + 1) % phrases.length;
+          cogitoText.innerText = phrases[index];
+          cogitoText.classList.remove("fade-out");
+        }, 500); 
+      }, 4000); 
     }
-  });
 
-  // --------------------------------------------------------
-  // NAV DOT CLICK → SCROLL (unchanged)
-  // --------------------------------------------------------
-  navItems.forEach((dot) => {
-    dot.addEventListener("click", () => {
+    // --------------------------------------------------------
+    // SCROLL & INTERACTION LOGIC
+    // --------------------------------------------------------
+    function scrollToSectionId(id) {
+      const target = document.getElementById(id);
+      if (!target) return;
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function getCurrentSectionIndex() {
+      const activeDot = document.querySelector(".side-nav li.active");
+      if (activeDot) {
+        const activeId = activeDot.getAttribute("data-section");
+        return sectionIds.indexOf(activeId);
+      }
+      
+      const bodyClasses = document.body.classList;
+      for (let i = 0; i < sectionIds.length; i++) {
+        if (bodyClasses.contains(`theme-${sectionIds[i]}`)) {
+          return i;
+        }
+      }
+      return 0; 
+    }
+
+    function triggerArrowAnim(direction) {
+      const arrow = direction === 'next' 
+      ? document.querySelector('.nav-arrow-down') 
+      : document.querySelector('.nav-arrow-up');
+
+      if (arrow) {
+        arrow.classList.add('active-state');
+        setTimeout(() => { arrow.classList.remove('active-state'); }, 200);
+      }
+    }
+
+    window.addEventListener("keydown", (e) => {
       if (!bootFinished) return;
 
-      const id = dot.getAttribute("data-section");
-      scrollToSectionId(id);
+      const isSpace = (e.code === "Space" || e.key === " ");
+      const isNext = e.code === "ArrowDown" || e.key === "j" || (isSpace && !e.shiftKey);
+      const isPrev = e.code === "ArrowUp" || e.key === "k" || (isSpace && e.shiftKey);
 
-      navItems.forEach((li) => li.classList.remove("active"));
-      dot.classList.add("active");
+      if (isNext || isPrev) {
+        e.preventDefault(); 
+        
+        const current = getCurrentSectionIndex();
+        let targetIndex = current;
+
+        if (isNext) {
+          triggerArrowAnim('next');
+          targetIndex = Math.min(sectionIds.length - 1, current + 1);
+        } else {
+          triggerArrowAnim('prev');
+          targetIndex = Math.max(0, current - 1);
+        }
+
+        if (targetIndex !== current) {
+          scrollToSectionId(sectionIds[targetIndex]);
+        }
+      }
     });
-  });
 
-  // --------------------------------------------------------
-  // INTERSECTION OBSERVER → SECTION REVEAL + ACTIVE DOT (unchanged)
-  // --------------------------------------------------------
-  const observer = new IntersectionObserver(
-    (entries) => {
+    navItems.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        if (!bootFinished) return;
+        const id = dot.getAttribute("data-section");
+        scrollToSectionId(id);
+        navItems.forEach((li) => li.classList.remove("active"));
+        dot.classList.add("active");
+      });
+    });
+
+    // --------------------------------------------------------
+    // INTERSECTION OBSERVER
+    // --------------------------------------------------------
+    const themeColorMeta = document.getElementById("theme-color-meta");
+    const navArrowUp = document.querySelector(".nav-arrow-up");
+    const navArrowDown = document.querySelector(".nav-arrow-down");
+
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        const id = entry.target.getAttribute("id");
-        const navItem = document.querySelector(`.side-nav li[data-section="${id}"]`);
-
         if (entry.isIntersecting) {
-          // Don't mark INIT as "shown" while the boot sequence is still active
-          if (entry.target.id === "init" && !bootFinished) {
-            return;
-          }
+          const id = entry.target.id;
+          
+          // Ignore init during boot
+          if (id === "init" && !bootFinished) return;
 
           entry.target.classList.add("show");
+
+          const navItem = document.querySelector(`.side-nav li[data-section="${id}"]`);
           navItems.forEach((li) => li.classList.remove("active"));
           if (navItem) navItem.classList.add("active");
-        }
 
-        const sectionId = entry.target.id;
+          if (navArrowUp && navArrowDown) {
+            if (id === "init") {
+              navArrowUp.classList.add("disabled");
+              navArrowDown.classList.remove("disabled");
+            } else if (id === "ping") {
+              navArrowUp.classList.remove("disabled");
+              navArrowDown.classList.add("disabled");
+            } else {
+              navArrowUp.classList.remove("disabled");
+              navArrowDown.classList.remove("disabled");
+            }
+          }
 
-        document.body.classList.remove(
-          "theme-init", "theme-code", "theme-pixel",
-          "theme-echo", "theme-self", "theme-ping"
-          );
-        document.body.classList.add(`theme-${sectionId}`);
-      });
-    },
-    { threshold: 0.33 }
-    );
+          let newColor = "#000000";
+          switch(id) {
+          case "init":  newColor = "#ff4e00"; break;
+          case "code":  newColor = "#0A0A0A"; break;
+          case "pixel": newColor = "#000000"; break;
+          case "echo":  newColor = "#000000"; break; 
+          case "self":  newColor = "#ffffff"; break;
+          case "ping":  newColor = "#050505"; break;
+          }
 
-  function startObservers() {
-    sections.forEach((section) => observer.observe(section));
-  }
+          if (themeColorMeta) themeColorMeta.setAttribute("content", newColor);
+          document.documentElement.style.backgroundColor = newColor;
 
-  // --------------------------------------------------------
-  // GLOBAL LOGO — spin on scroll direction
-  // --------------------------------------------------------
-  (function () {
-    const spinTarget   = document.querySelector('.spin-target');
-    const snapContainer = document.querySelector('.snap-container');
-    if (!spinTarget || !snapContainer) return;
-
-    // After the boot "spinReverb" finishes, clear its animation property
-    spinTarget.addEventListener('animationend', (e) => {
-      if (e.animationName === 'spinReverb') {
-        // allow later animations (scroll spins) to take over cleanly
-        spinTarget.style.animation = '';
-      }
-    });
-
-    let lastScrollTop = snapContainer.scrollTop;
-
-    snapContainer.addEventListener('scroll', () => {
-      const current = snapContainer.scrollTop;
-      const delta   = current - lastScrollTop;
-
-      if (delta === 0) return; // no movement = no spin
-      const direction = delta > 0 ? 'down' : 'up';
-      lastScrollTop = current;
-
-      // remove any existing spin so we can retrigger
-      spinTarget.classList.remove('spin-scroll-cw', 'spin-scroll-ccw');
-      // force reflow so the new animation restarts
-      void spinTarget.offsetWidth;
-
-      if (direction === 'down') {
-        spinTarget.classList.add('spin-scroll-cw');   // clockwise
-      } else {
-        spinTarget.classList.add('spin-scroll-ccw');  // counter-clockwise
-      }
-    });
-  })();
-
-  // --------------------------------------------------------
-  // CODE BLOCK EXPAND/COLLAPSE - ACCORDION (unchanged)
-  // --------------------------------------------------------
-  document.querySelectorAll(".code-line").forEach((line) => {
-    line.addEventListener("click", () => {
-
-      // 1. If this line is already expanded → collapse it
-      const isOpen = line.classList.contains("expanded");
-
-      if (isOpen) {
-        line.classList.remove("expanded");
-        const arrow = line.querySelector(".expand-arrow");
-        if (arrow) arrow.style.transform = "rotate(0deg)";
-        return;
-      }
-
-      // 2. Close ALL other expanded lines
-      document.querySelectorAll(".code-line.expanded").forEach((other) => {
-        other.classList.remove("expanded");
-        const otherArrow = other.querySelector(".expand-arrow");
-        if (otherArrow) otherArrow.style.transform = "rotate(0deg)";
-      });
-
-      // 3. Open THIS line
-      line.classList.add("expanded");
-      const arrow = line.querySelector(".expand-arrow");
-      if (arrow) arrow.style.transform = "rotate(90deg)";
-    });
-  });
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const selfSection = document.querySelector("#self");
-    const siteTitle   = document.querySelector(".site-title");
-
-  // If either is missing, bail out quietly (no runtime error)
-    if (!selfSection || !siteTitle) return;
-
-    const titleObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          siteTitle.classList.add("dark");
-        } else {
-          siteTitle.classList.remove("dark");
+          document.body.classList.remove(
+            "theme-init", "theme-code", "theme-pixel",
+            "theme-echo", "theme-self", "theme-ping"
+            );
+          document.body.classList.add(`theme-${id}`);
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.25 });
 
-    titleObserver.observe(selfSection);
-  });
-
-  // PIXEL — random highlight squares
-  (function () {
-    const pixelSection = document.querySelector("#pixel");
-    const sparkLayer = document.querySelector(".pixel-spark-viewport");
-    if (!pixelSection || !sparkLayer) return;
-
-    const SPARK_POOL_SIZE = 20;
-    const sparks = [];
-
-    // create pool
-    for (let i = 0; i < SPARK_POOL_SIZE; i++) {
-      const s = document.createElement("div");
-      s.className = "pixel-spark";
-      sparkLayer.appendChild(s);
-      sparks.push(s);
+    function startObservers() {
+      sections.forEach((section) => observer.observe(section));
     }
 
-    let active = false;
+    // --------------------------------------------------------
+    // CODE EXPANSION
+    // --------------------------------------------------------
+    document.querySelectorAll(".code-line").forEach((line) => {
+      line.addEventListener("click", () => {
+        const isOpen = line.classList.contains("expanded");
+        
+        document.querySelectorAll(".code-line.expanded").forEach((other) => {
+          other.classList.remove("expanded");
+          const otherArrow = other.querySelector(".expand-arrow");
+          if (otherArrow) otherArrow.style.transform = "rotate(0deg)";
+        });
 
-    function triggerSparks() {
-      if (!active) return;
+        if (!isOpen) {
+          line.classList.add("expanded");
+          const arrow = line.querySelector(".expand-arrow");
+          if (arrow) arrow.style.transform = "rotate(90deg)";
+        }
+      });
+    });
 
-      // 3–5 sparks per cycle
-      const count = 3 + Math.floor(Math.random() * 3);
+    document.addEventListener("DOMContentLoaded", () => {
+      const selfSection = document.querySelector("#self");
+      if (!selfSection || !siteTitle) return;
 
-      for (let i = 0; i < count; i++) {
-        const s = sparks[Math.floor(Math.random() * sparks.length)];
+      const titleObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) siteTitle.classList.add("dark");
+          else siteTitle.classList.remove("dark");
+        });
+      }, { threshold: 0.5 });
 
-        s.style.top = Math.random() * 100 + "%";
-        s.style.left = Math.random() * 100 + "%";
-        s.style.opacity = 0.22;
+      titleObserver.observe(selfSection);
+    });
 
-        setTimeout(() => {
-          s.style.opacity = 0;
-        }, 350 + Math.random() * 300);
+    // PIXEL SPARKS
+    (function () {
+      const pixelSection = document.querySelector("#pixel");
+      const sparkLayer = document.querySelector(".pixel-spark-viewport");
+      if (!pixelSection || !sparkLayer) return;
+
+      const SPARK_POOL_SIZE = 20;
+      const sparks = [];
+      for (let i = 0; i < SPARK_POOL_SIZE; i++) {
+        const s = document.createElement("div");
+        s.className = "pixel-spark";
+        sparkLayer.appendChild(s);
+        sparks.push(s);
       }
 
-      const nextDelay = 450 + Math.random() * 2300;
-      setTimeout(triggerSparks, nextDelay);
-    }
+      let active = false;
+      function triggerSparks() {
+        if (!active) return;
+        const count = 3 + Math.floor(Math.random() * 3);
+        for (let i = 0; i < count; i++) {
+          const s = sparks[Math.floor(Math.random() * sparks.length)];
+          s.style.top = Math.random() * 100 + "%";
+          s.style.left = Math.random() * 100 + "%";
+          s.style.opacity = 0.22;
+          setTimeout(() => { s.style.opacity = 0; }, 350 + Math.random() * 300);
+        }
+        const nextDelay = 450 + Math.random() * 2300;
+        setTimeout(triggerSparks, nextDelay);
+      }
 
-    // visibility detector
-    const observer = new IntersectionObserver(
-      (entries) => {
+      const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             active = true;
@@ -989,13 +853,42 @@
             sparkLayer.style.display = "none";
           }
         });
-      },
-      { threshold: 0.5 }
-      );
+      }, { threshold: 0.5 });
 
-    observer.observe(pixelSection);
-  })();
-</script>
-</div>
+      observer.observe(pixelSection);
+    })();
+
+    // NAV ARROW SETUP
+    function initNavArrows() {
+      const navArrowUp = document.querySelector(".nav-arrow-up");
+      const navArrowDown = document.querySelector(".nav-arrow-down");
+      if (!navArrowUp || !navArrowDown) return;
+
+      const forceShow = (id) => {
+        const target = document.getElementById(id);
+        if (target) target.classList.add("show");
+      };
+
+      navArrowUp.addEventListener("click", (e) => {
+        e.preventDefault(); e.stopPropagation();
+        const current = getCurrentSectionIndex();
+        const prev = Math.max(0, current - 1);
+        const prevId = sectionIds[prev];
+        forceShow(prevId); 
+        scrollToSectionId(prevId);
+      });
+
+      navArrowDown.addEventListener("click", (e) => {
+        e.preventDefault(); e.stopPropagation();
+        const current = getCurrentSectionIndex();
+        const next = Math.min(sectionIds.length - 1, current + 1);
+        const nextId = sectionIds[next];
+        forceShow(nextId);
+        scrollToSectionId(nextId);
+      });
+    }
+
+    initNavArrows();
+  </script>
 </body>
 </html>
