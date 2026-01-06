@@ -380,12 +380,12 @@ a[href*="500px"]:hover { color: #000000 !important; }
 .code-apps-block { margin-top: 1.25rem; padding-top: 2rem; border-top: none; }
 .code-apps-label { font-size: 0.8rem; opacity: 0.5; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
 .code-apps-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; }
-.app-link {
+a.app-link {
   color: var(--forge-orange); text-decoration: none; font-size: 0.95rem;
   border: 1px solid rgba(255, 78, 0, 0.3); padding: 0.5rem 1rem; border-radius: 4px;
   transition: all 0.2s ease;
 }
-.app-link:hover { background: rgba(255, 78, 0, 0.1); border-color: var(--forge-orange); }
+a.app-link:hover { background: rgba(255, 78, 0, 0.1); border-color: var(--forge-orange); }
 
 /* Profile Link */
 .code-profile-wrapper { margin-top: 1.5rem; }

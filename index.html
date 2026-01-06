@@ -251,12 +251,11 @@
               <span class="app-name">Guess Animals!</span>
               <span class="app-arrow">↗</span>
             </a>
-            <a href="#" target="_blank" class="app-link mono">
+            <a href="https://github.com/initMoin/ToDo" target="_blank" class="app-link mono">
               <span class="app-name">toDo</span>
               <span style="font-size: 0.7em; opacity: 0.6; margin-left: 6px; border: 1px solid rgba(255,255,255,0.3); padding: 1px 4px; border-radius: 3px;">
-                v3_refactor
+                v3_rebuild
               </span>
-              <!-- <span class="app-arrow" style="opacity: 0.42;">↻</span> -->
             </a>
           </div>
           <div class="code-profile-wrapper">
@@ -684,6 +683,13 @@
         startBrandSplash();
       }
     }, { passive: false });
+
+    window.addEventListener("click", () => {
+      if (!bootFinished) {
+        if (typeof splashTimeout !== "undefined") clearTimeout(splashTimeout);
+        startBrandSplash();
+      }
+    });
 
     // --------------------------------------------------------
     // COGITO TEXT LOOP
