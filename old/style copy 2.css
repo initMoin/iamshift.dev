@@ -1,0 +1,299 @@
+@font-face {
+  font-family: "Cal Sans";
+  src: url("https://fonts.gstatic.com/s/calsans/v1/pe0TMImSLYBIv1o4X1M8cex7GQ.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /*
+    Keep your existing background colors here.
+    Replace these values with the exact ones already used on your live site.
+  */
+  --bg-primary: #0d0d0d;
+  --bg-secondary: #0d0d0d;
+  --text-primary: #f5f2eb;
+  --text-secondary: rgba(245, 242, 235, 0.76);
+  --text-tertiary: rgba(245, 242, 235, 0.5);
+  --accent: #ff4e00;
+  --border-subtle: rgba(245, 242, 235, 0.1);
+
+  --shell-width: min(100% - 2.5rem, 76rem);
+  --copy-width: 44rem;
+
+  --hero-title-size: clamp(2.8rem, 6vw, 5.6rem);
+  --section-name-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  --section-headline-size: clamp(1rem, 1.2vw, 1.12rem);
+  --body-size: clamp(1.05rem, 1.45vw, 1.28rem);
+  --summary-size: clamp(0.98rem, 1.15vw, 1.08rem);
+
+  --hero-kicker-spacing: 0.18em;
+  --section-name-spacing: 0.16em;
+  --headline-spacing: 0.12em;
+
+  --body-line-height: 1.72;
+  --summary-line-height: 1.62;
+
+  --space-page-top: clamp(1rem, 2vw, 1.5rem);
+  --space-hero-top: clamp(5rem, 11vw, 9rem);
+  --space-hero-bottom: clamp(4rem, 8vw, 7rem);
+  --space-section-y: clamp(4.5rem, 10vw, 8rem);
+  --space-title-stack: 0.45rem;
+  --space-copy-start: 1.65rem;
+  --space-paragraph: 1.15rem;
+  --space-summary-start: 1.5rem;
+  --space-contact-top: 2rem;
+  --space-nav-gap: 1rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "Jura", sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.skip-link {
+  position: absolute;
+  top: -10rem;
+  left: 1rem;
+  z-index: 1000;
+  padding: 0.75rem 1rem;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-radius: 0.4rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.site-shell {
+  width: var(--shell-width);
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  padding-top: var(--space-page-top);
+  backdrop-filter: blur(14px);
+  background: color-mix(in srgb, var(--bg-primary) 78%, transparent);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.site-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: fit-content;
+  font-family: "Cal Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.site-mark-word-primary {
+  color: var(--accent);
+}
+
+.site-mark-divider {
+  color: var(--text-tertiary);
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-nav-gap);
+}
+
+.site-nav a {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: color 160ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.contact-link:hover,
+.contact-link:focus-visible,
+.site-mark:hover,
+.site-mark:focus-visible {
+  color: var(--accent);
+}
+
+.hero {
+  padding-top: var(--space-hero-top);
+  padding-bottom: var(--space-hero-bottom);
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.hero-kicker {
+  margin: 0;
+  color: var(--text-tertiary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: var(--hero-kicker-spacing);
+  text-transform: uppercase;
+}
+
+.hero-title {
+  margin: 0;
+  max-width: 10ch;
+  font-family: "Cal Sans", sans-serif;
+  font-size: var(--hero-title-size);
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+}
+
+.hero-copy {
+  margin: 0;
+  max-width: 30rem;
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.system-section {
+  padding-top: var(--space-section-y);
+  padding-bottom: var(--space-section-y);
+}
+
+.section-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-name {
+  margin: 0;
+  color: var(--text-tertiary);
+  font-family: "Cal Sans", sans-serif;
+  font-size: var(--section-name-size);
+  letter-spacing: var(--section-name-spacing);
+  text-transform: lowercase;
+}
+
+.section-headline {
+  margin: var(--space-title-stack) 0 0;
+  color: var(--text-secondary);
+  font-size: var(--section-headline-size);
+  font-weight: 500;
+  letter-spacing: var(--headline-spacing);
+  line-height: 1.35;
+  text-transform: lowercase;
+}
+
+.section-copy {
+  width: min(100%, var(--copy-width));
+  margin-top: var(--space-copy-start);
+}
+
+.section-copy p {
+  margin: 0;
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
+  letter-spacing: 0.01em;
+}
+
+.section-copy p + p {
+  margin-top: var(--space-paragraph);
+}
+
+.section-summary {
+  margin-top: var(--space-summary-start) !important;
+  color: var(--text-secondary);
+  font-size: var(--summary-size) !important;
+  line-height: var(--summary-line-height) !important;
+}
+
+.system-section-final {
+  padding-bottom: clamp(5rem, 11vw, 8rem);
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: var(--space-contact-top);
+}
+
+.contact-link {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  transition: color 160ms ease;
+}
+
+@media (max-width: 900px) {
+  .header-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .site-nav {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --shell-width: min(100% - 1.5rem, 76rem);
+    --space-section-y: clamp(3.5rem, 10vw, 5rem);
+    --space-copy-start: 1.25rem;
+    --space-paragraph: 1rem;
+    --space-summary-start: 1.2rem;
+  }
+
+  .hero-title {
+    max-width: 8ch;
+  }
+
+  .site-nav {
+    gap: 0.8rem 1rem;
+  }
+
+  .site-nav a,
+  .contact-link {
+    font-size: 0.92rem;
+  }
+}
