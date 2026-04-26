@@ -421,8 +421,8 @@ a {
 
   background-color: var(--section-bg);
   transition:
-    opacity 0.8s ease-out,
-    background-color 420ms ease;
+  opacity 0.8s ease-out,
+  background-color 420ms ease;
 }
 
 .snap-section.show {
@@ -469,9 +469,9 @@ a {
   transform: scale(1);
 
   transition:
-    background 180ms ease,
-    opacity 180ms ease,
-    transform 180ms ease;
+  background 180ms ease,
+  opacity 180ms ease,
+  transform 180ms ease;
 
   opacity: 0.6;
 
@@ -700,8 +700,8 @@ a {
   z-index: 0;
 
   background-image:
-    linear-gradient(rgba(255,255,255,0.042) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.042) 1px, transparent 1px);
+  linear-gradient(rgba(255,255,255,0.042) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.042) 1px, transparent 1px);
 
   background-size: 40px 40px;
 }
@@ -715,8 +715,8 @@ a {
   z-index: 0;
 
   background-image:
-    linear-gradient(rgba(255,255,255,0.017) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.017) 1px, transparent 1px);
+  linear-gradient(rgba(255,255,255,0.017) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.017) 1px, transparent 1px);
 
   background-size: 8px 8px;
 }
@@ -819,8 +819,8 @@ a {
   pointer-events: none;
 
   background:
-    linear-gradient(rgba(0, 0, 0, 0.09), rgba(0, 0, 0, 0.13)),
-    url("assets/pixel-bg.jpg") center center / cover no-repeat;
+  linear-gradient(rgba(0, 0, 0, 0.09), rgba(0, 0, 0, 0.13)),
+  url("assets/pixel-bg.jpg") center center / cover no-repeat;
 
   opacity: 0.9;
 }
@@ -950,6 +950,7 @@ a {
 .section-construct {
   position: relative;
   isolation: isolate;
+
   background: #050505;
   color: var(--white);
 
@@ -957,347 +958,147 @@ a {
   min-height: 100vh;
 
   margin-left: calc(50% - 50vw);
-  padding: 16vh 6vw 12vh;
-  box-sizing: border-box;
+  padding: 180px 6vw 12vh 6vw; 
 
+  box-sizing: border-box;
   overflow: visible;
 }
 
-.section-construct .section-lead {
-  max-width: 52ch;
-}
-
-.section-construct .section-body {
-  max-width: 49ch;
-}
-
 .construct-grid {
-  display: grid;
+  display: grid !important;
   grid-template-columns: 1fr 2fr;
   gap: 6vw;
   width: 100%;
   align-items: start;
 }
 
-.construct-landmark-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.construct-landmark-wrap .section-body > * + * {
-  margin-top: 0;
-}
-
-.construct-landmark-wrap .section-body p {
-  padding: 0.6rem 0 0 0;
-  /*padding: 1.5rem 0;*/
-}
-
-.construct-landmark-wrap .section-body p:first-child {
-  padding-top: 0;
-}
-
-.construct-landmark-wrap .section-foot {
-  margin-top: 2.2rem;
-}
-
-.section-construct .construct-landmark-wrap .section-body {
-  gap: 1.1rem;
-}
-
-.section-construct .construct-landmark-wrap .section-body p {
-  font-size: 1.19rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.77);
-}
-
-.section-construct .section-body {
-  text-transform: lowercase;
-}
-
-.section-construct .section-conclusion {
-  font-weight: 800;
-}
-
 .construct-main {
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  min-width: 0;
-}
-
-.section-construct .construct-meta-id {
-  background: var(--forge-orange);
-  color: var(--black);
-}
-
-.section-construct .system-ready {
-  background: var(--forge-orange);
-  color: var(--black);
-}
-
-.section-construct .system-ready::after {
-  background: var(--black);
-}
-
-.construct-showcase {
-  width: 100%;
-  min-width: 0;
-
-  margin-top: calc(1.5rem - 12px);
-  padding-top: 12px;
-
-  overflow: visible;
 }
 
 .construct-track {
   display: flex;
-  gap: 3.5rem;
-
+  gap: 5rem;
   width: 100%;
-  max-width: 100%;
-  min-width: 0;
-
   overflow-x: auto;
-  overflow-y: visible;
-
-  flex-wrap: nowrap;
-
-  margin-top: calc(0px - 12px);
-  padding-top: 12px;
-  padding-bottom: 1rem;
-
+  overflow-y: visible !important;
+  padding: 60px 0 20px 0;
   scroll-snap-type: x proximity;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-x: contain;
-
   scrollbar-width: none;
-  -ms-overflow-style: none;
 }
-
-.construct-track::-webkit-scrollbar {
-  display: none;
-}
+.construct-track::-webkit-scrollbar { display: none; }
 
 .construct-item {
   position: relative;
-
-  flex: 0 0 30%;
-  max-width: 30%;
-  min-width: 0;
-
+  flex: 0 0 320px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
   text-decoration: none;
   color: inherit;
-  overflow: visible;
-
-  scroll-snap-align: start;
-
-  transition: transform 260ms cubic-bezier(0.65,0,0.35,1);
-  will-change: transform;
-}
-.construct-item:hover {
-  transform: translateY(-6px);
+  overflow: visible !important;
 }
 
-.construct-image {
-  width: 100%;
-  overflow: visible;
-
+.construct-link, 
+.construct-status {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  left: auto;
+  width: auto;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  
+  font-family: 'Overpass Mono', monospace !important;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--forge-orange);
+  background: rgba(0, 0, 0, 0.88); 
+  backdrop-filter: blur(12px);
+  border-radius: 10px;
+  padding: 5px 12px;
+  
+  opacity: 0;
+  transform: translateY(8px) scale(0.9);
+  transition: all 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 20;
 }
+
+.construct-status { color: rgba(255, 255, 255, 0.8); }
+
+.construct-item:hover .construct-link,
+.construct-item:hover .construct-status {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 .construct-image img {
   display: block;
-  width: 83%;
+  width: 100%; /* Default: Full 320px width */
   height: auto;
-  transform-origin: center center;
-
-  transition:
-    transform 320ms cubic-bezier(0.65,0,0.35,1),
-    width 320ms cubic-bezier(0.65,0,0.35,1);
-}
-
-/* 1. Default State: Surgical grayscale on load */
-.construct-item:not(.construct-placeholder) .construct-image img {
   filter: grayscale(1);
-  /* Ensures smooth transition for both filter and motion */
-  transition: filter 0.4s cubic-bezier(0.2, 0, 0.2, 1), 
-              transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.2, 0, 0.2, 1);
   will-change: filter, transform;
 }
 
-/* 2. Active State: Triggers only after the 220ms JS 'intent' delay */
-.construct-item.is-active .construct-image img {
-  filter: grayscale(0) saturate(1.3) contrast(1.1) brightness(1.1);
-  transform: translateY(-12px) rotate(-5deg) scale(0.95);
-}
-
-/* Ensure the link underline also respects the JS delay */
-.construct-item.is-active .construct-link-text::after {
-  opacity: 0.95;
-  transform: scaleX(1);
+.construct-item:hover .construct-image img {
+  filter: grayscale(0) saturate(1.4) contrast(1.2);
+  /* PRESSURE EFFECT: Smaller scale + lift + subtle rotation */
+  transform: translateY(-16px) rotate(-3.5deg) scale(0.9); 
 }
 
 .construct-item-details {
-  --construct-type-scale: 1.69;
   width: 100%;
-  margin-top: 1.3rem;
-  padding-left: 0.69rem;
+  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: calc(0.35rem * var(--construct-type-scale));
-  min-height: 15.25rem;
-}
-
-.construct-item:hover .construct-item-details {
-  transform: translateY(-2px);
 }
 
 .construct-name {
-  width: 100%;
-  min-height: calc(2.45rem * var(--construct-type-scale));
+  color: var(--white);
+  line-height: 1;
+  text-transform: none;
+  
+  /* FIX: Normalizes the height so descriptions align perfectly across the track */
+  min-height: 4.5rem; 
   display: flex;
-  align-items: flex-start;
-
-  color: rgba(255,255,255,0.96);
-  white-space: nowrap;
-  overflow: hidden;
+  align-items: flex-end; /* Keeps different font baselines anchored to the bottom */
+  margin-bottom: 0.5rem;
 }
 
 .construct-name.todo-font {
-  font-family: 'Cal Sans', sans-serif;
-  font-size: calc(2.4rem * var(--construct-type-scale));
-  line-height: 0.98;
+  font-family: 'Cal Sans', sans-serif !important;
+  font-size: 3.1rem; /* Scaled up from 2.15rem */
   letter-spacing: -0.015em;
 }
 
 .construct-name.guess-animals-font {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: calc(2.27rem * var(--construct-type-scale));
-  line-height: 0.98;
-  letter-spacing: 0.01em;
-  transform: translateY(0.1em);
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 3.4rem; /* Scaled up from 2.7rem to match Cal Sans' visual weight */
+  letter-spacing: 0.02em;
+  /* Visual correction for Bebas Neue's cap-height */
+  transform: translateY(0.1em); 
 }
 
+/* Placeholder Title Scaling */
 .construct-name.mono {
-  font-family: 'Overpass Mono', monospace;
-  font-size: calc(1.72rem * var(--construct-type-scale));
+  font-family: 'Overpass Mono', monospace !important;
+  font-size: 2.2rem;
   font-weight: 600;
-  line-height: 1.38;
-  letter-spacing: -0.075em;
-  transform: translateY(0.19em);
+  letter-spacing: -0.05em;
 }
 
 .construct-desc {
-  margin-top: calc(0.13rem * var(--construct-type-scale));
-  max-width: 22ch;
-  min-height: calc(1.38em * 4);
-  font-family: 'Aleo', serif;
-  font-size: calc(1.03rem * var(--construct-type-scale));
-  font-weight: 400;
-  line-height: 1.38;
-  letter-spacing: 0;
-  color: rgba(255,255,255,0.72);
+  font-family: 'Aleo', serif !important;
+  font-size: 1.35rem; /* Scaled up from 1.18rem for better legibility */
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 1rem; /* Preserves the breathing space from the previous iteration */
   text-transform: lowercase;
-}
-
-.construct-link,
-.construct-status {
-  margin-top: auto;
-  font-family: 'Overpass Mono', monospace;
-  font-size: calc(0.9rem * var(--construct-type-scale));
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-  text-transform: lowercase;
-}
-
-.construct-link {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.69rem;
-  color: var(--forge-orange);
-}
-
-.construct-link-text {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 0.23rem;
-}
-
-.construct-link-text::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -0.08rem;
-
-  width: 100%;
-  height: 0.12rem;
-  
-  background: var(--forge-orange);
-  opacity: 0;
-  
-  transform: scaleX(0);
-  transform-origin: left center;
-
-  box-shadow: 0 0 0.35rem rgba(255, 78, 0, 0.35);
-  
-  transition:
-    transform 260ms cubic-bezier(0.65,0,0.35,1),
-    opacity 180ms ease;
-}
-
-.construct-item:hover .construct-link-text::after {
-  opacity: 0.95;
-  transform: scaleX(1);
-}
-
-.construct-showcase + .system-ready {
-  margin-top: 3.1rem;
-}
-
-.construct-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  color: rgba(255,255,255,0.82);
-}
-
-.construct-status .construct-link-text::after {
-  background: rgba(255,255,255,0.82);
-  box-shadow: 0 0 0.25rem rgba(255,255,255,0.18);
-}
-
-.construct-link-arrow {
-  scale: 1.5;
-  display: inline-block;
-}
-
-.construct-status .construct-link-arrow {
-  transform: translateX(0);
-  transition: transform 0.3s cubic-bezier(0.65,0,0.35,1);
-}
-
-.construct-item:hover .construct-link .construct-link-arrow {
-  transform: translateX(4px);
-}
-
-.construct-item:hover .construct-status .construct-link-arrow {
-  transform: translateX(3px);
-}
-
-.todo-font,
-.guess-animals-font {
-  text-wrap: nowrap;
+  max-width: 28ch; /* Prevents long lines from feeling thin */
 }
 
 
@@ -1440,9 +1241,9 @@ a {
   transform: translateY(-4px);
 
   transition:
-    max-height 260ms ease,
-    margin-top 200ms ease,
-    opacity 200ms ease 80ms;
+  max-height 260ms ease,
+  margin-top 200ms ease,
+  opacity 200ms ease 80ms;
 }
 
 .echo-entry.active .echo-entry-body {
@@ -1497,8 +1298,8 @@ a {
   pointer-events: none;
 
   transition:
-    transform 0.35s ease,
-    opacity 0.25s ease;
+  transform 0.35s ease,
+  opacity 0.25s ease;
 }
 
 .section-extra:hover .section-extra-overlay {
@@ -1571,8 +1372,8 @@ a {
 .section-echo .echo-arrow polygon {
   fill: var(--forge-orange);
   transition:
-    fill 220ms ease,
-    transform 220ms cubic-bezier(0.65,0,0.35,1);
+  fill 220ms ease,
+  transform 220ms cubic-bezier(0.65,0,0.35,1);
 }
 
 .section-echo .section-extra-link:hover {
@@ -1685,8 +1486,8 @@ a {
   text-decoration: none;
 
   transition:
-    color 180ms ease,
-    background-color 180ms ease;
+  color 180ms ease,
+  background-color 180ms ease;
 }
 
 .section-self .self-moin {
@@ -1843,8 +1644,8 @@ a {
   text-decoration: none;
 
   transition:
-    color 180ms ease,
-    transform 220ms cubic-bezier(0.65,0,0.35,1);
+  color 180ms ease,
+  transform 220ms cubic-bezier(0.65,0,0.35,1);
 }
 .self-cta-link::after {
   content: "";
@@ -1966,9 +1767,9 @@ a {
 .ping-block .value.link {
   color: var(--white);
   transition:
-    font-style 320ms ease,
-    letter-spacing 320ms ease,
-    color 220ms ease;
+  font-style 320ms ease,
+  letter-spacing 320ms ease,
+  color 220ms ease;
 }
 .ping-block .value.link:hover {
   color: var(--forge-orange);
@@ -2339,32 +2140,22 @@ body.ping-sent .section-ping .ping-form button {
   max-width: 104ch;
 }
 
-/*.section-body p {
-  font-family: 'Aleo', serif;
-  font-size: clamp(1.15rem, 1.45vw, 1.4rem);
-  line-height: 1.7;
-  max-width: 98ch;
-  color: rgba(255,255,255,0.78);
-}*/
+/* --- FUNCTIONAL TYPOGRAPHY: SCALE --- */
 
-/* --- FUNCTIONAL TYPOGRAPHY: SCALE v2 --- */
-
-/* A. NARRATIVE BODY (Aleo Serif)
-   Dominant, legible, and premium. Sitting under the section-lead. */
+/* A. NARRATIVE BODY (Aleo Serif) */
 .section-content .section-body p {
   font-family: 'Aleo', serif;
-  font-size: clamp(1.45rem, 1.8vw, 1.65rem); /* Increased for impact */
+  font-size: clamp(1.45rem, 1.8vw, 1.65rem);
   line-height: 1.75;
-  max-width: 62ch; /* Tighter line length for editorial feel */
+  max-width: 62ch;
   color: rgba(255, 255, 255, 0.92);
   text-transform: lowercase;
 }
 
-/* B. METADATA BODY (Overpass Mono)
-   The technical documentation on the left. Secondary but legible. */
+/* B. METADATA BODY (Overpass Mono) */
 [class*="-landmark-wrap"] .section-body p {
   font-family: 'Overpass Mono', monospace;
-  font-size: 1.05rem; /* Significant boost for monospace clarity */
+  font-size: 1.05rem;
   font-weight: 400;
   line-height: 1.65;
   letter-spacing: 0.03em;
@@ -2381,11 +2172,10 @@ body.theme-self [class*="-landmark-wrap"] .section-body p {
 }
 
 [class*="-landmark-wrap"] .section-body {
-  /* Reduced from clamp(4rem, 8vh, 6rem) to a precise rhythmic gap */
   margin-top: 2.2rem; 
   display: flex;
   flex-direction: column;
-  gap: 0.85rem; /* Tighter gap between mono paragraphs for better grouping */
+  gap: 0.85rem;
   max-width: 50ch;
 }
 
@@ -2590,9 +2380,9 @@ body.theme-self .cogito-line.fade-out {
   font-size: 1.45rem;
 
   transition:
-    transform 180ms ease,
-    background 180ms ease,
-    color 180ms ease;
+  transform 180ms ease,
+  background 180ms ease,
+  color 180ms ease;
 
   text-decoration: none !important;
   border: none !important;
@@ -2621,8 +2411,8 @@ body.theme-self .cogito-line.fade-out {
   pointer-events: none;
 
   transition:
-    opacity 160ms ease,
-    transform 180ms ease;
+  opacity 160ms ease,
+  transform 180ms ease;
 }
 
 .social-icon:hover {
@@ -2735,12 +2525,10 @@ body.theme-ping  { --section-bg: #050505; }
    iOS 26 SYSTEM MATERIAL HEADER
 ================================ */
 :root {
-  /* Default dark glass fallback */
   --glass-bg: rgba(0, 0, 0, 0.65);
   --glass-border: rgba(255, 255, 255, 0.08);
 }
 
-/* Dynamically shift the glass tint based on the active section */
 body.theme-init  { --glass-bg: rgba(255, 78, 0, 0.75); --glass-border: rgba(255, 255, 255, 0.15); }
 body.theme-code  { --glass-bg: rgba(10, 10, 10, 0.75); --glass-border: rgba(255, 255, 255, 0.08); }
 body.theme-pixel { --glass-bg: rgba(0, 0, 0, 0.75); --glass-border: rgba(255, 255, 255, 0.08); }
@@ -2757,10 +2545,9 @@ body.theme-ping  { --glass-bg: rgba(5, 5, 5, 0.75); --glass-border: rgba(255, 25
   z-index: 9999;
   pointer-events: none;
   background: transparent;
-  transition: opacity 0.4s ease; /* Smoothly fades out entire header at the end */
+  transition: opacity 0.4s ease;
 }
 
-/* The Pseudo-Element Glass Layer (Fixes the abrupt snapping bug) */
 .global-header::before {
   content: "";
   position: absolute;
@@ -2775,18 +2562,16 @@ body.theme-ping  { --glass-bg: rgba(5, 5, 5, 0.75); --glass-border: rgba(255, 25
   opacity: 0;
   pointer-events: none;
   
-  /* Animates opacity for smooth scroll-trigger, and colors for theme switching */
   transition: 
-    opacity 0.6s cubic-bezier(0.2, 0, 0.2, 1),
-    background 0.6s ease,
-    border-bottom 0.6s ease;
+  opacity 0.6s cubic-bezier(0.2, 0, 0.2, 1),
+  background 0.6s ease,
+  border-bottom 0.6s ease;
 }
 
 .global-header.boot-complete {
   pointer-events: auto;
 }
 
-/* Active State triggered by Scroll */
 .global-header.is-scrolled::before {
   opacity: 1;
 }
@@ -2797,7 +2582,6 @@ body.theme-ping  { --glass-bg: rgba(5, 5, 5, 0.75); --glass-border: rgba(255, 25
 ================================ */
 
 @media (max-width: 820px) {
-  /* --- 1. ABSOLUTE VERTICAL SNAPPING --- */
   html, body { overflow: hidden; }
   
   .snap-container {
@@ -2811,8 +2595,7 @@ body.theme-ping  { --glass-bg: rgba(5, 5, 5, 0.75); --glass-border: rgba(255, 25
     scroll-snap-align: start;
     scroll-snap-stop: always;
     min-height: 100svh;
-    
-    /* FIX: Replaced the massive 14vh with a strict 6.5rem (approx 104px) to perfectly clear the header */
+
     padding: 6.5rem 1.5rem 5rem 1.5rem; 
     
     width: 100%; 
@@ -2841,18 +2624,16 @@ body.theme-ping  { --glass-bg: rgba(5, 5, 5, 0.75); --glass-border: rgba(255, 25
   .init-grid, .code-grid, .pixel-grid, .construct-grid, .echo-grid, .self-grid, .ping-grid {
     display: flex;
     flex-direction: column;
-    gap: 0; /* REMOVED: Fixes the erratic, compounding spacing bug */
+    gap: 0;
   }
-  
-  /* Strip wrappers to enable direct child sorting */
+
   [class*="-landmark-wrap"],
   [class*="-content"],
   .construct-main,
   .self-profile-block {
     display: contents !important; 
   }
-  
-  /* THE MASTER LADDER (Absolute Order + Precise Margins) */
+
   .section-title            { order: 1; margin: 0 0 0.5rem 0; }
   [class*="-meta-id"]       { order: 2; margin: 0 0 1.5rem 0; }
   .section-social-links     { order: 3; margin: 0 0 1.5rem 0; }
@@ -2865,11 +2646,10 @@ body.theme-ping  { --glass-bg: rgba(5, 5, 5, 0.75); --glass-border: rgba(255, 25
   .ping-form                { order: 10; width: 100% !important; margin: 0 0 2rem 0; } 
   .ping-response            { order: 11; margin: 0 0 1.5rem 0; } 
   .ping-info                { order: 12; margin: 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: none; } 
-  .system-ready             { order: 99; margin: 3rem 0 0 0 !important; } /* Dedicated, uniform top space */
+  .system-ready             { order: 99; margin: 3rem 0 0 0 !important; }
 
   /* --- 4. SECTION-SPECIFIC OVERRIDES --- */
-  
-  /* Construct: Body above lead */
+
   .section-construct .section-body { order: 4; }
   .section-construct .section-lead { order: 5; }
 
@@ -2919,16 +2699,13 @@ body.theme-ping  { --glass-bg: rgba(5, 5, 5, 0.75); --glass-border: rgba(255, 25
 
   /* --- 7. FIN SECTION DESIGN --- */
   .section-fin { 
-    position: relative; 
-    /* Force full viewport height to act as a true final screen */
+    position: relative;
     min-height: 100svh !important; 
-    height: 100svh !important; 
-    /* Remove the massive padding so flexbox can take over centering */
+    height: 100svh !important;
     padding: 0 1.5rem; 
     background-color: var(--black); 
     scroll-snap-align: end; 
-    
-    /* Make the section itself the master centering container */
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2943,14 +2720,12 @@ body.theme-ping  { --glass-bg: rgba(5, 5, 5, 0.75); --glass-border: rgba(255, 25
     height: auto;
   }
   
-  .fin-content { 
-    /* CRITICAL: Overrides the wildcard 'display: contents' rule to restore the container */
+  .fin-content {
     display: flex !important; 
     flex-direction: column; 
     align-items: center; 
     justify-content: center;
     width: 100%;
-    /* The gap will now properly apply */
     gap: 3.5rem; 
   }
   
@@ -2975,7 +2750,6 @@ body.theme-ping  { --glass-bg: rgba(5, 5, 5, 0.75); --glass-border: rgba(255, 25
   
   .fin-exit-wrap {
     position: absolute;
-    /* Anchors strictly to the bottom left of the screen */
     bottom: 2rem; 
     left: 1.5rem;
     width: auto;
@@ -2999,9 +2773,8 @@ body.theme-ping  { --glass-bg: rgba(5, 5, 5, 0.75); --glass-border: rgba(255, 25
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    position: relative; /* Anchors the exit text */
-    
-    /* Forces full screen on desktop to hide the previous section */
+    position: relative;
+
     min-height: 100vh; 
     width: 100vw;
     margin-left: calc(50% - 50vw);
@@ -3012,7 +2785,7 @@ body.theme-ping  { --glass-bg: rgba(5, 5, 5, 0.75); --glass-border: rgba(255, 25
     display: flex; 
     flex-direction: column; 
     align-items: center; 
-    gap: 3.5rem; /* Mirrors the new mobile spacing */
+    gap: 3.5rem;
     width: 100%; 
   }
   
@@ -3036,22 +2809,9 @@ body.theme-ping  { --glass-bg: rgba(5, 5, 5, 0.75); --glass-border: rgba(255, 25
   .fin-exit-wrap {
     position: absolute;
     bottom: 6vh;
-    left: 6vw; /* Matches your global desktop side padding */
+    left: 6vw;
     width: auto;
     margin: 0;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
