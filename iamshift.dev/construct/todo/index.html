@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>toDō • shift ∴ Moin</title>
+
+  <link rel="stylesheet" href="todo.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=Oxanium:wght@200..800&family=Overpass+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+  <div id="wallpaper" aria-hidden="true"></div>
+
+  <header class="global-header">
+    <a href="../../index.html" class="global-home-link" aria-label="Go to home">
+      <div class="global-logo-container">
+        <img src="../../assets/logo-orange.png" class="global-logo-img" alt="shift logo" />
+      </div>
+
+      <div class="site-title-wrap">
+        <div class="site-title">
+          <span class="g-word-let">let</span>
+          <span class="g-word-shift">shift</span>
+          <span class="g-word-colon">:</span>
+          <span class="g-word-moin">moin</span>
+        </div>
+      </div>
+    </a>
+  </header>
+
+  <main class="todo-scroll-shell">
+    <section class="todo-section" aria-labelledby="todo-heading">
+      <div class="todo-container">
+        <aside class="todo-rail" aria-label="Page actions">
+          <div class="todo-rail-top">
+            <a href="../apps.html" class="rail-link rail-link-back" aria-label="Back to apps">
+              <i class="ri-arrow-left-line"></i>
+            </a>
+            <span class="rail-label mono">APP</span>
+          </div>
+
+          <a href="mailto:hello@iamshift.dev?subject=toD%C5%8D"
+          class="rail-link rail-link-mail"
+          aria-label="Email about toDō">
+          <i class="ri-mail-line"></i>
+        </a>
+      </aside>
+
+      <div class="todo-main">
+        <div class="todo-hero">
+          <div class="todo-hero-copy">
+            <h1 id="todo-heading" class="todo-headline">toDō</h1>
+            <p class="todo-tagline mono">where structure meets intention</p>
+
+            <div class="todo-description">
+              <p>
+                toDō is a task system built around clarity, momentum, and intent. It is designed to help people move from vague mental clutter to deliberate action without the noise, bloat, or friction that turns most productivity tools into chores of their own.
+              </p>
+              <p>
+                The app treats a task as more than a checkbox. A toDō can carry timing, recurrence, notes, tags, and supporting structure, while still feeling light, fast, and native to the Apple ecosystem.
+              </p>
+              <p>
+                This project is also a statement of how I build: calm interfaces, precise behavior, thoughtful hierarchy, and product decisions that respect the user’s attention instead of competing for it.
+              </p>
+            </div>
+
+            <div class="todo-actions">
+              <a href="#updates" class="todo-link todo-link-primary">Get updates</a>
+            </div>
+          </div>
+
+          <div class="todo-hero-visual">
+            <img src="../../assets/todo.png" alt="toDō app icon" class="todo-icon" />
+          </div>
+        </div>
+
+        <section class="todo-details" aria-labelledby="details-heading">
+          <h2 id="details-heading" class="section-title mono">details</h2>
+
+          <div class="detail-grid">
+            <article class="detail-card">
+              <p class="detail-label mono">status</p>
+              <p class="detail-value">Active build</p>
+              <p class="detail-text">Currently being shaped as a focused, modern task system with room to expand across devices and platforms.</p>
+            </article>
+
+            <article class="detail-card">
+              <p class="detail-label mono">current platform</p>
+              <p class="detail-value">iOS</p>
+              <p class="detail-text">Built first for iPhone, with a product direction rooted in the Apple ecosystem and native UI behavior.</p>
+            </article>
+
+            <article class="detail-card">
+              <p class="detail-label mono">support target</p>
+              <p class="detail-value">iOS 26+</p>
+              <p class="detail-text">A modern foundation aimed at current Apple platform capabilities, interaction patterns, and design expectations.</p>
+            </article>
+
+            <article class="detail-card">
+              <p class="detail-label mono">planned platforms</p>
+              <p class="detail-value">iPadOS, watchOS, macOS</p>
+              <p class="detail-text">Expansion is planned across Apple devices first, with each version carrying the same product language and structural clarity.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="todo-showcase" aria-labelledby="showcase-heading">
+          <h2 id="showcase-heading" class="section-title mono">showcase</h2>
+
+          <div class="showcase-grid">
+            <figure class="shot-card shot-card-primary">
+              <div class="shot-frame shot-frame-portrait">
+                <div class="shot-placeholder">
+                  <span class="mono">replace with screenshot 01</span>
+                </div>
+              </div>
+              <figcaption>Main task flow — capture, structure, and move.</figcaption>
+            </figure>
+
+            <figure class="shot-card">
+              <div class="shot-frame shot-frame-portrait">
+                <div class="shot-placeholder">
+                  <span class="mono">replace with screenshot 02</span>
+                </div>
+              </div>
+              <figcaption>Focused task detail and supporting context.</figcaption>
+            </figure>
+
+            <figure class="shot-card">
+              <div class="shot-frame shot-frame-portrait">
+                <div class="shot-placeholder">
+                  <span class="mono">replace with screenshot 03</span>
+                </div>
+              </div>
+              <figcaption>Organization, recurrence, and clarity at a glance.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="todo-features" aria-labelledby="features-heading">
+          <h2 id="features-heading" class="section-title mono">features</h2>
+
+          <div class="feature-story-grid">
+            <div class="feature-story-copy">
+              <h3>Capture one focus at a time.</h3>
+              <p>
+                toDō is built around a simple principle: one clear focus is stronger than a noisy pile of half-decisions. The app is meant to help users get a task out of their head, give it structure, and move.
+              </p>
+              <p>
+                Instead of asking people to manage a system before they manage their work, toDō lowers the friction. Capture comes first. Structure follows. Momentum stays intact.
+              </p>
+              <p>
+                This is where the app starts to differ. It does not try to impress users with complexity. It tries to help them act.
+              </p>
+            </div>
+
+            <div class="feature-story-shots">
+              <figure class="shot-card">
+                <div class="shot-frame shot-frame-portrait">
+                  <div class="shot-placeholder">
+                    <span class="mono">replace with screenshot 04</span>
+                  </div>
+                </div>
+                <figcaption>Capture quickly, then refine only as needed.</figcaption>
+              </figure>
+
+              <figure class="shot-card">
+                <div class="shot-frame shot-frame-portrait">
+                  <div class="shot-placeholder">
+                    <span class="mono">replace with screenshot 05</span>
+                  </div>
+                </div>
+                <figcaption>One focus, clearer decisions, less drag.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="todo-future" aria-labelledby="future-heading">
+          <h2 id="future-heading" class="section-title mono">the future of toDō</h2>
+
+          <div class="future-grid">
+            <article class="detail-card">
+              <p class="detail-label mono">next</p>
+              <p class="detail-value">iPadOS, watchOS, macOS</p>
+              <p class="detail-text">The immediate path is deeper support across the Apple ecosystem, while preserving the same product language and clarity.</p>
+            </article>
+
+            <article class="detail-card">
+              <p class="detail-label mono">planned</p>
+              <p class="detail-value">Android + Web</p>
+              <p class="detail-text">Longer term, toDō is planned to reach beyond Apple platforms so the system can travel further without losing its identity.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="updates" class="todo-waitlist" aria-labelledby="waitlist-heading">
+          <div class="todo-waitlist-copy">
+            <p class="todo-waitlist-kicker mono">updates</p>
+            <h2 id="waitlist-heading" class="todo-waitlist-title">Get the update.</h2>
+            <p class="todo-waitlist-text">
+              Join the list for release notes, launch signals, and platform updates as toDō takes shape.
+            </p>
+          </div>
+
+          <form id="waitlist-form" action="https://formspree.io/f/xdawqpjb" method="POST" class="todo-form">
+            <label for="email" class="sr-only">Email address</label>
+            <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+            autocomplete="email"
+            />
+            <button type="submit" id="submit-btn">Join Waitlist</button>
+          </form>
+
+          <div id="success-msg" class="success-message" hidden>
+            <span class="check-icon" aria-hidden="true">✓</span>
+            <h3>You're on the list.</h3>
+            <p>Talk soon.</p>
+          </div>
+        </section>
+
+        <section class="todo-contact" id="contact-section" aria-labelledby="contact-heading">
+          <h2 id="contact-heading" class="section-title mono">contact</h2>
+
+          <p class="todo-contact-text">
+            Interested in the product, the build, or the thinking behind it?<br />
+            Reach me at <a href="mailto:hello@iamshift.dev" class="inline-link">hello@iamshift.dev</a>.
+          </p>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  const form = document.getElementById('waitlist-form');
+  const successMsg = document.getElementById('success-msg');
+  const submitBtn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Sending...';
+
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.hidden = true;
+        successMsg.hidden = false;
+      } else {
+        alert('Something went wrong. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Join Waitlist';
+      }
+    } catch (error) {
+      alert('Connection error. Check your internet.');
+      submitBtn.disabled = false;
+      submitBtn.innerText = 'Join Waitlist';
+    }
+  });
+</script>
+<script>
+  const scrollShell = document.querySelector('.todo-scroll-shell');
+  const mailIcon = document.querySelector('.rail-link-mail');
+  const contactSection = document.getElementById('contact-section');
+  const rail = document.querySelector('.todo-rail');
+
+  function alignMailIcon() {
+    if (!mailIcon || !contactSection || !rail || window.innerWidth <= 900) return;
+
+    const railTop = rail.offsetTop;
+    const contactTop = contactSection.offsetTop;
+    const contactHeight = contactSection.offsetHeight;
+    const iconHeight = mailIcon.offsetHeight;
+
+    const centeredTop = contactTop - railTop + (contactHeight / 2) - (iconHeight / 2);
+    mailIcon.style.top = `${Math.max(0, centeredTop)}px`;
+  }
+
+  function syncResponsiveScrollState() {
+    if (!scrollShell) return;
+
+    if (window.innerWidth > 640) {
+      const current = window.scrollY || document.documentElement.scrollTop || 0;
+      if (current > 0) {
+        scrollShell.scrollTop = current;
+        window.scrollTo(0, 0);
+      }
+    }
+  }
+
+  function handleLayoutRefresh() {
+    syncResponsiveScrollState();
+    alignMailIcon();
+  }
+
+  window.addEventListener('load', handleLayoutRefresh);
+  window.addEventListener('resize', handleLayoutRefresh);
+
+  if (scrollShell) {
+    scrollShell.addEventListener('scroll', alignMailIcon, { passive: true });
+  }
+</script>
+</body>
+</html>

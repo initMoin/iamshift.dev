@@ -1,0 +1,1104 @@
+/* ==========================================================================
+   1. VARIABLES & CONFIGURATION
+   ========================================================================== */
+:root {
+  --forge-orange: #ff4e00;
+  --white: #ffffff;
+  --black: #000000;
+  --ok-green: #4ade80;
+  --red-brand: #B40000;
+
+  /* Grid Alignment Constants */
+  --grid-top-safe: 22vh;
+  --grid-bottom-safe: 12vh;
+  --narrative-gap: 2.5rem;
+  
+  --nav-color: var(--black);
+  --headline-safe-top: calc(130px + env(safe-area-inset-top));
+
+  --logo-min: 64px;
+  --logo-max: 101px;
+  --global-logo-size: clamp(64px, 6vw, 101px);
+}
+
+/* ==========================================================================
+   2. GLOBAL RESET & CANVAS
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  background-color: var(--black);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: transparent; 
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   SHARED LAYOUT ENGINE
+   ========================================================================== */
+
+/* This applies to every section that follows this philosophy */
+.init-grid, 
+.code-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: var(--grid-top-safe) 1fr var(--grid-bottom-safe); 
+  height: 100vh;
+  padding: 0 5vw;
+  overflow: hidden;
+}
+
+/* The Left Anchor (Columns 1-4) */
+.init-landmark-wrap, 
+.code-landmark-wrap {
+  grid-row: 2;
+  grid-column: 1 / 5; 
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+/* The Right Anchor (Columns 5-13) - LEADING ALIGNED */
+.init-narrative-block, 
+.code-narrative-block {
+  grid-row: 2;
+  grid-column: 5 / 13; 
+  display: flex;
+  flex-direction: column;
+  /* Optical alignment with the top of the Serif titles */
+  margin-top: 0.8rem; 
+}
+
+
+/* ==========================================================================
+   7. BOOT SEQUENCE
+   ========================================================================== */
+
+#bootWrapper {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100000; /* Absolute top-level */
+  background: var(--black);
+  color: var(--gray-light);
+  padding: calc(2rem + env(safe-area-inset-top)) 2rem;
+  font-family: 'Overpass Mono', monospace;
+  overflow-y: auto;
+  display: block;
+}
+
+.boot-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 100001; /* Above the boot text */
+  background: var(--black);
+  display: none; /* Managed by JS startBrandSplash() */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+.boot-splash.show {
+  display: flex !important;
+  opacity: 1;
+}
+
+.boot-logo {
+  width: 140px !important; /* Original spec from style.css Line 281 */
+  height: auto;
+  margin-bottom: 1.5rem;
+  object-fit: contain;
+  display: block;
+}
+
+.boot-splash-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#bootText p {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.25s ease, max-height 0.25s ease;
+}
+
+#bootText p.visible {
+  opacity: 1;
+  max-height: 200px;
+}
+
+/* Typography Restoration */
+.boot-title {
+  font-family: 'Aleo', serif;
+  font-weight: 600;
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.38rem;
+  align-items: baseline;
+  color: var(--white);
+}
+
+.bt-shift, .bt-parentheses { font-style: italic; }
+
+
+/* ==========================================================================
+   7. BOOT SEQUENCE BRANDING
+   ========================================================================== */
+
+.boot-header-line {
+  display: flex; 
+  align-items: center; 
+  gap: 0.75rem; 
+  font-size: 1.5rem; 
+  padding-bottom: 0.95rem;
+  color: var(--white);
+  font-family: 'Overpass Mono', monospace !important;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+}
+
+.terminal-brand {
+  display: inline-block;
+  letter-spacing: -0.04em;
+}
+
+/* Logic: mo[italic-i]n. (Roman) */
+.i-italic {
+  font-style: italic;
+  display: inline-block;
+  letter-spacing: -0.12em; 
+  transform: translateX(-0.02em);
+}
+
+/* Logic: sh[roman-i]ft() (Italic) */
+.shift-italic {
+  font-style: italic;
+  display: inline-block;
+  letter-spacing: -0.06em;
+}
+
+.i-roman {
+  font-style: normal; 
+  display: inline-block;
+  letter-spacing: -0.08em;
+  transform: translateX(0.02em);
+}
+
+
+/* ==========================================================================
+   BOOT SEQUENCE & SPLASH (Restored Styling)
+   ========================================================================== */
+
+.boot-screen {
+  background-color: var(--black);
+  font-family: 'Overpass Mono', monospace;
+  padding: calc(2rem + env(safe-area-inset-top)) 2rem;
+}
+
+.boot-splash {
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boot-title {
+  font-family: 'Aleo', serif;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row-reverse; /* moin.shift() order */
+  gap: 0.38rem;
+  align-items: baseline;
+}
+
+.bt-shift, .bt-parentheses {
+  font-style: italic; /* The "shift()" is always italic in your system */
+}
+
+.bt-moin .i-alt {
+  font-style: italic;
+  display: inline-block;
+  transform: translateX(-0.02em);
+}
+
+
+/* ==========================================================================
+   8. SECTION: INIT (0x00 :: synchronization)
+   ========================================================================== */
+
+.section-init {
+  background-color: var(--forge-orange);
+  color: var(--black);
+  display: block; 
+  padding: 0;
+}
+
+.section-init .section-title {
+  font-family: 'Aleo', serif;
+  font-weight: 600;
+  font-size: clamp(5rem, 12vw, 10.5rem); 
+  line-height: 0.8;
+  margin: 0;
+  text-transform: lowercase;
+  color: var(--black);
+}
+
+.init-meta-id {
+  margin-top: 1.5rem;
+  font-family: 'Overpass Mono', monospace;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background-color: var(--black);
+  color: var(--forge-orange);
+  padding: 0.4rem 0.9rem; 
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  align-self: flex-start;
+  display: inline-block;
+}
+
+/* Narrative Typography */
+.content-lead {
+  font-family: 'Aleo', serif;
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3vw, 3.1rem) !important;
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
+  color: var(--black);
+}
+
+.content-narrative {
+  display: flex;
+  flex-direction: column;
+  /* Fixed mathematical spacing between all p tags and conclusion */
+  gap: var(--narrative-gap); 
+}
+
+.content-narrative p {
+  font-family: 'Aleo', serif;
+  font-size: 1.35rem;
+  line-height: 1.45;
+  margin-bottom: 0 !important;
+  color: var(--black);
+  max-width: 60ch;
+}
+
+/* Conclusion Styling */
+.conclusion-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+.conclusion-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33%; 
+  height: 2px;
+  background: linear-gradient(to right, rgba(0,0,0,0.2) 33%, transparent 33%);
+}
+
+.content-conclusion {
+  font-family: 'Aleo', serif;
+  font-weight: 600 !important;
+  font-size: 1.7rem;
+  color: var(--black);
+}
+
+.system-ready-call {
+  font-family: 'Overpass Mono', monospace;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background-color: var(--black);
+  color: var(--forge-orange);
+  padding: 0.3rem 0.7rem;
+  border-radius: 2px;
+  display: inline-block;
+  text-transform: lowercase;
+}
+
+/* ==========================================================================
+   9. SECTION: CODE (0x01 :: implementation)
+   ========================================================================== */
+
+.section-code {
+  /* Set to transparent to reveal the underlying wallpaper grid */
+  background-color: transparent !important;
+  color: var(--white);
+  display: block;
+  padding: 0;
+  position: relative;
+}
+
+.section-code .section-title {
+  font-family: 'Aleo', serif;
+  font-weight: 600;
+  font-size: clamp(5rem, 12vw, 10.5rem);
+  line-height: 0.8;
+  margin: 0;
+  text-transform: lowercase;
+  color: var(--forge-orange);
+  /* Depth for dark theme */
+  text-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.code-meta-id {
+  margin-top: 1.5rem;
+  font-family: 'Overpass Mono', monospace;
+  font-weight: 600;
+  font-size: 0.9rem;
+  /* Inverted color scheme for the dark 'Code' section */
+  background-color: var(--forge-orange);
+  color: var(--black);
+  padding: 0.4rem 0.9rem;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  align-self: flex-start;
+  display: inline-block;
+}
+
+/* Narrative Typography - Inherits mathematical gap from global variables */
+.section-code .content-lead {
+  font-family: 'Aleo', serif;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.2vw, 3.4rem) !important;
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
+  color: var(--white);
+}
+
+.section-code .content-narrative p {
+  font-family: 'Aleo', serif;
+  font-size: 1.35rem;
+  line-height: 1.45;
+  margin-bottom: 0 !important;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 55ch;
+}
+
+/* Conclusion Styling */
+.section-code .conclusion-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+.section-code .conclusion-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33%;
+  height: 2px;
+  /* White border for the dark theme */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.2) 33%, transparent 33%);
+}
+
+.section-code .content-conclusion {
+  font-family: 'Aleo', serif;
+  font-weight: 600 !important;
+  font-size: 1.7rem;
+  color: var(--white);
+}
+
+.section-code .system-ready-call {
+  font-family: 'Overpass Mono', monospace;
+  font-weight: 600;
+  font-size: 0.85rem;
+  /* Call-to-action color for dark theme */
+  background-color: var(--white);
+  color: var(--black);
+  padding: 0.3rem 0.7rem;
+  border-radius: 2px;
+  display: inline-block;
+  text-transform: lowercase;
+}
+
+/* ==========================================================================
+   10. SECTION: PIXEL (0x02 :: visualization)
+   ========================================================================== */
+
+.section-pixel {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: var(--grid-top-safe) 1fr 10vh; 
+  height: 100vh;
+  padding: 0 5vw;
+  color: var(--white) !important;
+  background: transparent !important;
+  overflow: hidden;
+}
+
+.section-pixel .content-lead {
+  color: var(--white) !important;
+}
+
+/* LANDMARK: Columns 1-4 */
+.pixel-container {
+  grid-row: 2;
+  grid-column: 1 / 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.section-pixel .section-title {
+  font-family: 'Aleo', serif;
+  font-weight: 600;
+  font-size: clamp(5rem, 12vw, 10.5rem);
+  line-height: 0.8;
+  margin: 0;
+  text-transform: lowercase;
+  color: var(--forge-orange);
+}
+
+.pixel-meta-id {
+  margin-top: 1.5rem;
+  font-family: 'Overpass Mono', monospace;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background-color: var(--forge-orange);
+  color: var(--black);
+  padding: 0.4rem 0.9rem;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  align-self: flex-start;
+  display: inline-block;
+}
+
+.pixel-content-wrap {
+  grid-row: 2;
+  grid-column: 5 / 13;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 0.8rem;
+}
+.pixel-content-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.pixel-content-wrap .content-narrative {
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--narrative-gap); /* 2.5rem constant from init/code */
+}
+
+/* 1. NARRATIVE: From content.txt */
+.pixel-intent {
+  font-family: 'Aleo', serif;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.2vw, 3.4rem);
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
+  color: var(--white);
+  max-width: 100%;
+}
+
+.pixel-narrative-body {
+  font-family: 'Aleo', serif;
+  font-size: 1.35rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 55ch;
+  margin-bottom: 4rem; /* Gap before the deep dive */
+}
+
+/* 2. DEEP DIVE: The Expandable Sections */
+.pixel-deep-dive-label {
+  font-family: 'Overpass Mono', monospace;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--forge-orange);
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.pixel-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; 
+  width: 100%;
+  max-width: 60ch;
+  border-top: 1px solid rgba(255, 78, 0, 0.2);
+  padding-top: 2rem;
+  flex-shrink: 0; /* Prevents the accordion from being crushed */
+}
+
+.pixel-line {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1.25rem;
+}
+
+.pixel-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pixel-main {
+  font-family: 'Overpass Mono', monospace;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+
+/* Expansion State Logic */
+.pixel-detail {
+  font-family: 'Aleo', serif;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  padding-top: 1rem;
+  padding-left: 1.85rem;
+  max-width: 50ch;
+  
+  max-height: 0; 
+  opacity: 0;
+  transform: translateY(4px);
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+
+  padding-bottom: 1rem;
+  font-size: 1.05rem; /* Slightly smaller for density */
+  line-height: 1.5;
+}
+
+.pixel-line.expanded .pixel-detail {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Social Array */
+.pixel-social-links {
+  margin-top: 2.5rem; /* Spacing below the meta-id as requested */
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.pixel-social-links .social-icon {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.3s ease, transform 0.3s ease;
+  /*transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s ease;*/
+}
+
+/*.pixel-social-links .social-icon[href*="dribbble"]:hover  { color: #ea4c89 !important; }
+.pixel-social-links .social-icon[href*="behance"]:hover   { color: #1769ff !important; }
+.pixel-social-links .social-icon[href*="500px"]:hover     { color: var(--white) !important; }
+.pixel-social-links .social-icon[href*="instagram"]:hover { color: #e1306c !important; }*/
+
+/* Visual Layers */
+.pixel-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.pixel-spark-viewport {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.pixel-tabs-header {
+  display: flex;
+  gap: 2.5rem;
+  border-bottom: 1px solid rgba(255, 78, 0, 0.1);
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+.pixel-tab-viewport {
+  min-height: 140px; /* Anchors the layout */
+  margin-top: 1.5rem; /* Space above content as requested */
+  position: relative;
+}
+
+.pixel-tab-text {
+  /* Typeface change to Monospace */
+  font-family: 'Overpass Mono', monospace !important;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85) !important;
+  
+  /* Smooth Transition Logic */
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* State for the JS swap */
+.pixel-tab-text.switching {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.pixel-tab-trigger {
+  font-family: 'Overpass Mono', monospace;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding-bottom: 0.5rem;
+}
+
+.pixel-tab-trigger.active {
+  color: var(--forge-orange);
+}
+
+.pixel-tab-indicator {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  background: var(--forge-orange);
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1), width 0.3s ease;
+  will-change: transform, width;
+}
+
+/* Tab Detail Box */
+.pixel-tab-content {
+  min-height: 150px; /* Fixed height prevents layout shift */
+  font-family: 'Aleo', serif;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 55ch;
+  animation: tabFade 0.4s ease-out;
+}
+
+@keyframes tabFade {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#pixelTabContent {
+  min-height: 150px; 
+  font-family: 'Overpass Mono', monospace !important; /* THE FIX: Correct font-family */
+  font-size: 1.05rem; 
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8) !important;
+  max-width: 55ch;
+  margin-top: 1.5rem;
+  
+  /* THE FIX: Use standard transition for the smooth fade */
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out; 
+}
+
+
+/* ==========================================================================
+   11. SECTION: CONSTRUCT (0x03 :: compilation)
+   ========================================================================== */
+
+
+
+/* ==========================================================================
+   12. SECTION: ECHO (0x04 :: resonance)
+   ========================================================================== */
+
+.section-echo {
+  background-color: transparent !important;
+  color: var(--white);
+  display: block;
+  padding: 0;
+}
+
+.echo-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: var(--grid-top-safe) 1fr var(--grid-bottom-safe); 
+  height: 100vh;
+  padding: 0 5vw;
+}
+
+.echo-landmark-wrap {
+  grid-row: 2;
+  grid-column: 1 / 5;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-echo .section-title {
+  font-family: 'Aleo', serif;
+  font-weight: 600;
+  font-size: clamp(5rem, 12vw, 10.5rem);
+  line-height: 0.8;
+  color: var(--white);
+}
+
+.echo-meta-id {
+  margin-top: 1.5rem;
+  font-family: 'Overpass Mono', monospace;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background-color: var(--white);
+  color: var(--black);
+  padding: 0.4rem 0.9rem;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.echo-narrative-block {
+  grid-row: 2;
+  grid-column: 5 / 13;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.8rem;
+}
+
+/* ==========================================================================
+   13. SECTION: SELF (0x05 :: source)
+   ========================================================================== */
+
+.section-self {
+  background-color: var(--white) !important;
+  color: var(--black);
+  display: block;
+  padding: 0;
+}
+
+.self-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: var(--grid-top-safe) 1fr var(--grid-bottom-safe); 
+  height: 100vh;
+  padding: 0 5vw;
+}
+
+.self-landmark-wrap {
+  grid-row: 2;
+  grid-column: 1 / 5;
+}
+
+.section-self .section-title {
+  font-family: 'Aleo', serif;
+  font-weight: 600;
+  font-size: clamp(5rem, 12vw, 10.5rem);
+  line-height: 0.8;
+  color: var(--red-brand);
+}
+
+.self-meta-id {
+  margin-top: 1.5rem;
+  font-family: 'Overpass Mono', monospace;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background-color: var(--red-brand);
+  color: var(--white);
+  padding: 0.4rem 0.9rem;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.self-narrative-block {
+  grid-row: 2;
+  grid-column: 5 / 13;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  margin-top: 0.8rem;
+}
+
+/* ==========================================================================
+   14. SECTION: PING (0x06 :: transmission)
+   ========================================================================== */
+
+.section-ping {
+  background-color: #050505 !important;
+  color: var(--white);
+  display: block;
+  padding: 0;
+}
+
+.ping-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: var(--grid-top-safe) 1fr var(--grid-bottom-safe); 
+  height: 100vh;
+  padding: 0 5vw;
+}
+
+.ping-landmark-wrap {
+  grid-row: 2;
+  grid-column: 1 / 5;
+}
+
+.section-ping .section-title {
+  font-family: 'Aleo', serif;
+  font-weight: 600;
+  font-size: clamp(5rem, 12vw, 10.5rem);
+  line-height: 0.8;
+  color: var(--forge-orange);
+}
+
+.ping-meta-id {
+  margin-top: 1.5rem;
+  font-family: 'Overpass Mono', monospace;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background-color: var(--forge-orange);
+  color: var(--black);
+  padding: 0.4rem 0.9rem;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.ping-narrative-block {
+  grid-row: 2;
+  grid-column: 5 / 13;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.8rem;
+}
+
+/* ==========================================================================
+   INTERACTION & UTILITIES
+   ========================================================================== */
+
+/* Pixel Sparks Layer */
+.pixel-spark-viewport {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  display: none;
+}
+
+.pixel-spark {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--forge-orange);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.25s ease-out;
+}
+
+/* Social Link Array */
+.pixel-social-links, 
+.echo-social-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  font-family: 'Overpass Mono', monospace;
+}
+
+/*.social-icon {
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.42) !important;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}*/
+
+/*.social-icon:hover {
+  transform: translateY(-3px);
+}*/
+
+/* ==========================================================================
+   GLOBAL UI PERSISTENCE
+   ========================================================================== */
+
+/* Axiom Colors per Theme */
+body.theme-self .global-axiom { --axiom-color: var(--black); }
+body.theme-ping .global-axiom { --axiom-color: var(--white); }
+
+/* Header Dark Mode Toggle (for white 'Self' section) */
+.site-title.dark { 
+  color: var(--black); 
+}
+
+/* Ping Animation Rings */
+.ping-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ping-ring {
+  position: absolute;
+  top: 50%;
+  left: 25%; /* Aligned behind the title area */
+  width: 800px;
+  height: 800px;
+  border: 1px solid var(--forge-orange);
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.1);
+  animation: pingExpand 6.5s ease-out infinite;
+}
+
+@keyframes pingExpand {
+  0% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(2.5); }
+}
+
+
+/* ==========================================================================
+   SOCIAL BRAND COLORS
+   ========================================================================== */
+
+.social-icon {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  color: rgba(255, 255, 255, 0.42) !important;
+  transition: color 0.3s ease;
+}
+
+/* Use exact attribute selectors to defeat global orange hovers */
+[href*="dribbble"]:hover  { color: #ea4c89 !important; }
+[href*="behance"]:hover   { color: #1769ff !important; }
+[href*="500px"]:hover     { color: #ffffff !important; }
+[href*="instagram"]:hover { color: #e1306c !important; }
+[href*="bsky"]:hover      { color: #0285FF !important; }
+
+.social-icon:hover {
+  transform: translateY(-3px);
+}
+
+
+/* ==========================================================================
+   INTERACTIVE ACCORDIONS (Shared: Pixel, Echo, Construct)
+   ========================================================================== */
+
+.code-line {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1.25rem;
+}
+
+.code-main {
+  font-family: 'Overpass Mono', monospace;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+
+.expand-arrow {
+  color: var(--forge-orange);
+  font-size: 1.2rem;
+  margin-right: 0.75rem;
+}
+
+.code-detail {
+  font-family: 'Aleo', serif;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  padding-top: 1rem;
+  padding-left: 1.85rem;
+  max-width: 50ch;
+}
+
+/* Social Link Array */
+.pixel-social-links, .echo-social-links {
+  display: flex;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.section-pixel .content-narrative p,
+.section-pixel .pixel-main,
+.section-pixel .pixel-detail {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+
+/* ==========================================================================
+   GLOBAL HEADER
+   ========================================================================== */
+
+.global-logo-container {
+  position: fixed;
+  top: 32px; /* Matching your Inspector screenshot 'top: 32px' */
+  left: 32px; /* Matching your Inspector screenshot 'left: 32px' */
+  
+  /* THE FIX: Force the variable with a hard fallback */
+  width: var(--global-logo-size, 80px) !important;
+  height: var(--global-logo-size, 80px) !important;
+  
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  
+  /* Initial lock for boot sequence */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.global-logo-container.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.global-logo-img {
+  /* THE FIX: Absolute containment */
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  padding: 15%; /* Keeps the orange logo safely inside the white circle */
+  display: block;
+}
+
+.site-title {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-out 0.2s; /* Slight delay after logo pops */
+}
+
+.site-title.show {
+  opacity: 1;
+  visibility: visible;
+}

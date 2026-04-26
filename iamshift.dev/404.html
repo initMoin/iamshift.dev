@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>404 : Signal Lost</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+  <meta name="theme-color" content="#000000">
+  <meta http-equiv="refresh" content="6; url=/"> </head>
+<body style="background-color: #000; overflow: hidden;">
+
+  <div id="bootWrapper" class="boot-screen" style="display: block; opacity: 1;">
+    <div id="bootText">
+      <p class="mono boot-header-line" style="color: #ff4e00;">
+        <img src="assets/boot-header-logo.png" class="boot-header-logo" alt="shift error logo">
+        err : signal_lost
+      </p>
+
+      <p class="mono">shiftOS 4.1 — kernel panic</p>
+      <br>
+      <p class="mono">[ DIAGNOSTIC ] Scanning directory path...</p>
+      <p class="mono"><span style="color:red">[ FAIL ]</span>  Target location not found.</p>
+      <p class="mono"><span style="color:red">[ FAIL ]</span>  Navigation reference is null.</p>
+      <br>
+      <p class="mono">[ SYSTEM ] Initiating recovery protocol...</p>
+      <p class="mono"><span class="status-ok">[ OK ]</span>  Rerouting to origin point (iamshift.dev)...</p>
+      <br>
+      <p class="mono">
+        >> Redirecting
+        <span class="loading-ellipsis">...</span>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // 1. Animate the Text
+    const bootLines = document.querySelectorAll("#bootText p, #bootText br");
+    let delay = 100;
+    let total = 0;
+
+    bootLines.forEach((line) => {
+      setTimeout(() => {
+        line.classList.add("visible");
+        const container = document.getElementById("bootWrapper");
+        if(container) container.scrollTop = container.scrollHeight;
+      }, total);
+      total += delay + Math.random() * 100;
+    });
+
+    // 2. Redirect to Home after animation
+    setTimeout(() => {
+      window.location.href = "/";
+    }, total + 2500);
+  </script>
+
+</body>
+</html>

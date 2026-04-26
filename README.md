@@ -3,6 +3,8 @@
 
 `shift is standard // design is craft`
 
+[![Pages](https://img.shields.io/badge/Deployed%20with-Cloudflare%20Pages-F38020?style=flat&logo=cloudflare&logoColor=white)](https://iamshift.dev)
+
 This repository contains the complete source code for **iamshift.dev**, a motion-driven identity system and portfolio website built from the ground up using semantic HTML, precision CSS, scroll-driven micro-interactions, and a fully custom boot sequence.
 No frameworks. No templates. Pure hand-crafted front-end architecture.
 

@@ -1,0 +1,558 @@
+@font-face {
+  font-family: "Abolition";
+  src: url("../assets/Abolition-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --forge-orange: #ff4e00;
+  --white: #ffffff;
+  --black: #000000;
+  --grid-bg: #0A0A0A;
+  --brand-blue: #006CE7;
+
+  --section-padding-x: 2rem;
+  --headline-safe-top: 130px;
+
+  --global-logo-min: 64px;
+  --global-logo-max: 101px;
+  --global-logo-size: clamp(var(--global-logo-min), 6vw, var(--global-logo-max));
+
+  --site-title-font-min: 2.3rem;
+  --site-title-font-max: 3.6rem;
+  --site-title-font-size: clamp(var(--site-title-font-min), 3.2vw, var(--site-title-font-max));
+
+  --content-max-width: 1120px;
+  --app-icon-size: clamp(182px, 19vw, 228px);
+  --app-icon-radius: 22%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+  width: 100%;
+  font-family: "Inter Tight", sans-serif;
+  background-color: var(--black);
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  background: transparent;
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+#wallpaper {
+  position: fixed;
+  inset: -10vh 0;
+  z-index: -1;
+  background-color: var(--grid-bg);
+  background-image:
+  linear-gradient(to right, rgba(255,255,255,0.042) 1px, transparent 1px),
+  linear-gradient(to bottom, rgba(255,255,255,0.042) 1px, transparent 1px);
+  background-size: 33px 33px;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.mono {
+  font-family: "Overpass Mono", monospace;
+}
+
+.global-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transform-origin: top right;
+}
+
+.global-home-link {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.global-logo-container {
+  position: fixed;
+  top: calc(2rem + env(safe-area-inset-top));
+  left: 2rem;
+  width: var(--global-logo-size);
+  height: var(--global-logo-size);
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.global-logo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.site-title-wrap {
+  position: fixed;
+  top: calc(2rem + env(safe-area-inset-top) + (var(--global-logo-size) / 2));
+  left: calc(2rem + var(--global-logo-size) + 1.5rem);
+  transform: translateY(-50%);
+  z-index: 9998;
+  pointer-events: none;
+}
+
+.site-title {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  font-size: var(--site-title-font-size);
+  line-height: 1;
+  color: #ffffff;
+}
+
+.g-word-let,
+.g-word-shift,
+.g-word-colon {
+  font-family: "Helvetica Now Display", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.042em;
+}
+
+.g-word-moin {
+  font-family: "Oxanium", sans-serif !important;
+  font-weight: 700 !important;
+  text-transform: none;
+  position: relative;
+  top: 0;
+  transform: translateY(2px);
+}
+
+.apps-shell {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.apps-section {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: calc(var(--headline-safe-top) + 2.35rem);
+  padding-left: var(--section-padding-x);
+  padding-right: var(--section-padding-x);
+  padding-bottom: 6rem;
+}
+
+.apps-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: fit-content;
+  margin-bottom: 1.8rem;
+  color: rgba(255,255,255,0.82);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.apps-back-link:hover {
+  color: var(--forge-orange);
+}
+
+.apps-back-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.apps-back-link:hover .apps-back-arrow {
+  transform: translateX(-2px);
+}
+
+.apps-back-text {
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+}
+
+.apps-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+.apps-kicker {
+  font-size: 0.8rem;
+  opacity: 0.5;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.75);
+}
+
+.apps-headline {
+  font-size: 3rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+  color: var(--forge-orange);
+}
+
+.apps-tagline {
+  font-family: "Overpass Mono", monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.16em;
+  text-transform: lowercase;
+  color: rgba(255,255,255,0.78);
+  margin-bottom: 1.85rem;
+}
+
+.apps-intro {
+  font-size: 1.42rem;
+  line-height: 1.76;
+  color: rgba(255,255,255,0.92);
+  max-width: 56rem;
+  margin-bottom: 4.5rem;
+}
+
+.apps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.app-entry {
+  display: grid;
+  grid-template-columns: var(--app-icon-size) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.app-entry-icon-link,
+.app-entry-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--app-icon-size);
+  height: var(--app-icon-size);
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.app-entry-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--app-icon-radius);
+  box-shadow:
+  0 22px 48px rgba(0, 0, 0, 0.3),
+  0 8px 18px rgba(0, 0, 0, 0.18);
+  transition:
+  transform 0.24s ease,
+  box-shadow 0.24s ease;
+}
+
+.app-entry-icon-grid {
+  background: #ebebeb;
+}
+
+.app-entry-icon-link:hover .app-entry-icon,
+.app-entry-icon-link:focus-visible .app-entry-icon {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:
+  0 28px 56px rgba(0, 0, 0, 0.38),
+  0 10px 20px rgba(255, 78, 0, 0.12);
+}
+
+.app-entry-content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.app-entry-name {
+  margin: 0 0 0.78rem;
+  color: rgba(255,255,255,0.96);
+  font-weight: 400;
+}
+
+.app-name--guess {
+  font-family: "Abolition", system-ui, sans-serif;
+  font-size: clamp(1.77rem, 2.42vw, 2.28rem);
+  letter-spacing: 0.04em;
+  line-height: 1.04;
+  font-weight: 400;
+}
+
+.app-name--todo {
+  font-family: "Cal Sans", sans-serif;
+  font-size: clamp(1.66rem, 2.18vw, 2.07rem);
+  line-height: 1.06;
+  font-weight: 400;
+}
+
+.app-name--placeholder {
+  font-family: "Overpass Mono", monospace;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  font-size: clamp(1.24rem, 1.4vw, 1.36rem);
+  opacity: 0.78;
+  font-weight: 400;
+}
+
+.app-entry-description {
+  font-size: 1.26rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.84);
+  max-width: 48rem;
+  margin-bottom: 1.15rem;
+}
+
+.app-entry-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.8rem;
+  width: fit-content;
+  color: var(--white);
+  font-size: 1.16rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.12rem 0;
+}
+
+.app-entry-link > span:first-child {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  color: var(--forge-orange);
+}
+
+.app-entry-link > span:first-child::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.69rem;
+  width: 100%;
+  height: 2.3px;
+  background: var(--forge-orange);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.28s ease;
+}
+
+.app-entry-link:hover > span:first-child::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.app-entry-link:not(:hover) > span:first-child::after {
+  transform-origin: center left;
+}
+
+.app-entry-link-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--forge-orange);
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.app-entry-link:hover .app-entry-link-icon {
+  transform: translateX(5px);
+}
+
+.app-entry-link-static {
+  opacity: 0.82;
+  cursor: default;
+}
+
+.app-entry-link-static > span:first-child {
+  color: rgba(255,255,255,0.72);
+}
+
+.app-entry-link-static > span:first-child::after {
+  display: none;
+}
+
+.app-entry-link-static .app-entry-link-icon {
+  color: rgba(255,255,255,0.72);
+  transform: none;
+}
+
+.app-entry-link-static:hover {
+  transform: none;
+}
+
+.app-entry-link-static > span:first-child,
+.app-entry-link-static .app-entry-link-icon {
+  color: rgba(255,255,255,0.72);
+}
+
+.app-entry-link-static .app-entry-link-icon {
+  color: rgba(255,255,255,0.72);
+}
+
+.app-entry-coming-soon .app-entry-description {
+  color: rgba(255,255,255,0.72);
+}
+
+@media (max-width: 900px) {
+  :root {
+    --section-padding-x: 1.25rem;
+    --app-icon-size: 156px;
+  }
+
+  .apps-headline {
+    font-size: 2.5rem;
+  }
+
+  .apps-intro {
+    font-size: 1.24rem;
+    max-width: 44rem;
+    margin-bottom: 3.1rem;
+  }
+
+  .app-entry {
+    gap: 1.4rem;
+    align-items: center;
+  }
+
+  .app-entry-description {
+    font-size: 1.08rem;
+  }
+
+  .app-entry-link {
+    font-size: 1rem;
+  }
+
+  .app-entry-link-icon {
+    font-size: 1.34rem;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --headline-safe-top: 104px;
+    --app-icon-size: 116px;
+  }
+
+  .global-logo-container {
+    top: calc(1.15rem + env(safe-area-inset-top));
+    left: 1.25rem;
+  }
+
+  .site-title-wrap {
+    top: calc(1.15rem + env(safe-area-inset-top) + (var(--global-logo-size) / 2));
+    left: calc(1.25rem + var(--global-logo-size) + 0.9rem);
+  }
+
+  .site-title {
+    font-size: clamp(1.5rem, 6vw, 2.1rem);
+    gap: 0.24rem;
+  }
+
+  .apps-back-link {
+    margin-bottom: 1.35rem;
+  }
+
+  .apps-back-text {
+    font-size: 0.76rem;
+  }
+
+  .apps-section {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-bottom: 2.2rem;
+  }
+
+  .apps-headline {
+    font-size: 2.15rem;
+  }
+
+  .apps-tagline {
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+  }
+
+  .apps-intro {
+    font-size: 1.08rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .apps-list {
+    gap: 2rem;
+  }
+
+  .app-entry {
+    grid-template-columns: var(--app-icon-size) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .app-entry-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .app-name--guess {
+    font-size: 1.26rem;
+  }
+
+  .app-name--todo {
+    font-size: 1.22rem;
+  }
+
+  .app-name--placeholder {
+    font-size: 0.96rem;
+  }
+
+  .app-entry-description {
+    font-size: 1.02rem;
+    line-height: 1.66;
+    margin-bottom: 0.8rem;
+  }
+
+  .app-entry-link {
+    font-size: 0.98rem;
+    gap: 0.58rem;
+    align-items: center;
+  }
+
+  .app-entry-link-icon {
+    font-size: 1.28rem;
+  }
+}
