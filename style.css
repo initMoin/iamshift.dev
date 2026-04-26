@@ -2734,38 +2734,63 @@ body.theme-ping  { --section-bg: #050505; }
 /* ================================
    iOS 26 SYSTEM MATERIAL HEADER
 ================================ */
+:root {
+  /* Default dark glass fallback */
+  --glass-bg: rgba(0, 0, 0, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Dynamically shift the glass tint based on the active section */
+body.theme-init  { --glass-bg: rgba(255, 78, 0, 0.75); --glass-border: rgba(255, 255, 255, 0.15); }
+body.theme-code  { --glass-bg: rgba(10, 10, 10, 0.75); --glass-border: rgba(255, 255, 255, 0.08); }
+body.theme-pixel { --glass-bg: rgba(0, 0, 0, 0.75); --glass-border: rgba(255, 255, 255, 0.08); }
+body.theme-echo  { --glass-bg: rgba(0, 0, 0, 0.75); --glass-border: rgba(255, 255, 255, 0.08); }
+body.theme-self  { --glass-bg: rgba(255, 255, 255, 0.85); --glass-border: rgba(0, 0, 0, 0.08); }
+body.theme-ping  { --glass-bg: rgba(5, 5, 5, 0.75); --glass-border: rgba(255, 255, 255, 0.08); }
+
 .global-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  
   height: calc(32px + var(--logo-size) + 32px); 
-  
   z-index: 9999;
   pointer-events: none;
+  background: transparent;
+  transition: opacity 0.4s ease; /* Smoothly fades out entire header at the end */
+}
+
+/* The Pseudo-Element Glass Layer (Fixes the abrupt snapping bug) */
+.global-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   
-  background: rgba(255, 255, 255, 0);
-  backdrop-filter: blur(0px) saturate(100%);
-  -webkit-backdrop-filter: blur(0px) saturate(100%);
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid var(--glass-border);
   
+  opacity: 0;
+  pointer-events: none;
+  
+  /* Animates opacity for smooth scroll-trigger, and colors for theme switching */
   transition: 
-    background 0.8s cubic-bezier(0.2, 0, 0.2, 1),
-    backdrop-filter 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+    opacity 0.6s cubic-bezier(0.2, 0, 0.2, 1),
+    background 0.6s ease,
+    border-bottom 0.6s ease;
 }
 
 .global-header.boot-complete {
   pointer-events: auto;
 }
 
+/* Active State triggered by Scroll */
+.global-header.is-scrolled::before {
+  opacity: 1;
+}
 
-/* ================================
-   responsive - 0xFF :: adaptation
-================================ */
-
-/* ================================
-   responsive - 0xFF :: adaptation
-================================ */
 
 /* ================================
    responsive - 0xFF :: adaptation
@@ -2804,6 +2829,7 @@ body.theme-ping  { --section-bg: #050505; }
 
   /* --- 2. GLOBAL HEADER & UI ADJUSTMENTS --- */
   :root { --logo-size: 48px; }
+  .global-header { height: calc(20px + var(--logo-size) + 20px); }
   .global-logo-container { top: 20px; left: 20px; }
   .site-title-wrap { top: 20px; left: calc(20px + var(--logo-size) + 1rem); }
   .site-title { font-size: clamp(1.8rem, 6vw, 2.4rem); }
@@ -2893,32 +2919,42 @@ body.theme-ping  { --section-bg: #050505; }
 
   /* --- 7. FIN SECTION DESIGN --- */
   .section-fin { 
-    position: relative; /* CRITICAL: Anchors the absolute exit text */
-    height: auto !important; 
-    min-height: auto !important; 
-    padding: 6rem 1.5rem 8rem 1.5rem; /* Extra bottom padding for the exit text */
+    position: relative; 
+    /* Force full viewport height to act as a true final screen */
+    min-height: 100svh !important; 
+    height: 100svh !important; 
+    /* Remove the massive padding so flexbox can take over centering */
+    padding: 0 1.5rem; 
     background-color: var(--black); 
     scroll-snap-align: end; 
+    
+    /* Make the section itself the master centering container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .fin-grid { 
     display: flex; 
     flex-direction: column; 
     align-items: center;
+    justify-content: center;
     width: 100%;
     height: auto;
   }
   
   .fin-content { 
-    display: flex; 
+    /* CRITICAL: Overrides the wildcard 'display: contents' rule to restore the container */
+    display: flex !important; 
     flex-direction: column; 
     align-items: center; 
     justify-content: center;
     width: 100%;
-    gap: 1.5rem; 
+    /* The gap will now properly apply */
+    gap: 3.5rem; 
   }
   
-  .fin-logo { width: clamp(63px, 17vw, 99px); height: auto; }
+  .fin-logo { width: clamp(72px, 20vw, 96px); height: auto; }
   
   .section-fin .global-cogito {
     position: static !important;
@@ -2932,15 +2968,15 @@ body.theme-ping  { --section-bg: #050505; }
   .cogito-line {
     text-align: center;
     margin: 0 auto;
-    font-size: clamp(12px, 3.5vw, 18px) !important; 
+    font-size: clamp(14px, 3.8vw, 18px) !important; 
     white-space: nowrap;
     overflow: hidden;
   }
   
-  /* Decoupled from the grid, anchored perfectly to the bottom left */
   .fin-exit-wrap {
     position: absolute;
-    bottom: 3rem;
+    /* Anchors strictly to the bottom left of the screen */
+    bottom: 2rem; 
     left: 1.5rem;
     width: auto;
     text-align: left;
@@ -2976,7 +3012,7 @@ body.theme-ping  { --section-bg: #050505; }
     display: flex; 
     flex-direction: column; 
     align-items: center; 
-    gap: 2.5rem; 
+    gap: 3.5rem; /* Mirrors the new mobile spacing */
     width: 100%; 
   }
   
