@@ -324,6 +324,12 @@
               <img src="assets/social/app-store.svg" alt="Download on the App Store">
             </a>
           </div>
+        </div>
+
+        <div class="section-content">
+          <p class="section-lead">
+            systems built to hold under real use
+          </p>
 
           <div class="section-body">
             <p>
@@ -340,12 +346,6 @@
               </p>
             </div>
           </div>
-        </div>
-
-        <div class="construct-main">
-          <p class="section-lead">
-            systems built to hold under real use
-          </p>
 
           <div class="construct-showcase">
             <div class="construct-track">
@@ -438,7 +438,8 @@
             <a href="https://iamshift.substack.com" target="_blank" class="social-icon" data-label="Substack">
               <i class="bi bi-substack"></i>
             </a>
-            <a href="https://mastodon.social/@iamshift" class="social-icon" target="_blank" data-label="Mastodon">
+
+            <a rel="me" href="https://mastodon.social/@iamshift" class="social-icon" target="_blank" data-label="Mastodon">
               <i class="ri-mastodon-line"></i>
             </a>
 
@@ -547,8 +548,8 @@
           <div class="section-social-links mono">
             <a href="https://bsky.app/profile/iamshift.dev" target="_blank" class="social-icon" data-label="Bluesky"><i class="ri-bluesky-line"></i>
             </a>
-
-            <a href="https://mastodon.social/@iamshift" target="_blank" class="social-icon" data-label="Mastodon"><i class="ri-mastodon-line"></i>
+            
+            <a rel="me" href="https://mastodon.social/@iamshift" target="_blank" class="social-icon" data-label="Mastodon"><i class="ri-mastodon-line"></i>
             </a>
 
             <a href="https://www.instagram.com/moinuddin.here" target="_blank" class="social-icon" data-label="Instagram"><i class="ri-instagram-line"></i></a>
@@ -1564,58 +1565,50 @@
       }
     });
 
-    const constructItems = document.querySelectorAll('.construct-item');
-    const mobileDetailsContainer = document.querySelector('.construct-mobile-details');
+    const constructItems = document.querySelectorAll(".construct-item");
+    const mobileDetailsContainer = document.querySelector(".construct-mobile-details");
 
-    // Initialize the first tab if on mobile
-    if (window.innerWidth <= 820 && constructItems.length > 0) {
-      constructItems[0].classList.add('is-active');
-      mobileDetailsContainer.innerHTML = constructItems[0].querySelector('.construct-item-details').outerHTML;
+    function updateConstructDetails(item) {
+      if (!mobileDetailsContainer) return;
+
+      const sourceDetails = item.querySelector(".construct-item-details");
+      if (!sourceDetails) return;
+
+      mobileDetailsContainer.innerHTML = "";
+
+      const detailsClone = sourceDetails.cloneNode(true);
+      mobileDetailsContainer.appendChild(detailsClone);
+
+      requestAnimationFrame(() => {
+        detailsClone.classList.add("visible");
+      });
+    }
+
+    function activateConstructItem(item) {
+      constructItems.forEach(i => i.classList.remove("is-active"));
+      item.classList.add("is-active");
+      updateConstructDetails(item);
+    }
+
+    if (constructItems.length > 0 && window.innerWidth <= 820) {
+      activateConstructItem(constructItems[0]);
     }
 
     constructItems.forEach(item => {
-      let hoverTimeout;
+      item.addEventListener("click", e => {
+        if (window.innerWidth > 820) return;
 
-      // 1. Desktop Behavior (Hover)
-      item.addEventListener('mouseenter', () => {
-        if (window.innerWidth > 820) {
-          item.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-          hoverTimeout = setTimeout(() => { item.classList.add('is-active'); }, 190);
+        const isLink = item.tagName.toLowerCase() === "a";
+        const isActive = item.classList.contains("is-active");
+
+        if (!isActive) {
+          e.preventDefault();
+          activateConstructItem(item);
+          return;
         }
-      });
 
-      item.addEventListener('mouseleave', () => {
-        if (window.innerWidth > 820) {
-          clearTimeout(hoverTimeout);
-          item.classList.remove('is-active');
-        }
-      });
-
-      // 2. Mobile Behavior (Tap / Tab Switch)
-      item.addEventListener('click', (e) => {
-        if (window.innerWidth <= 820) {
-          e.preventDefault(); 
-
-          constructItems.forEach(i => i.classList.remove('is-active'));
-          item.classList.add('is-active');
-
-          const detailsHTML = item.querySelector('.construct-item-details').outerHTML;
-          
-          // CRITICAL FIX: Do NOT clear innerHTML first. This prevents the height collapse.
-          mobileDetailsContainer.innerHTML = detailsHTML;
-
-          // Manually reset the CSS animation without dropping the container height
-          const newContent = mobileDetailsContainer.querySelector('.construct-item-details');
-          newContent.style.animation = 'none';
-          newContent.offsetHeight; /* Trigger DOM reflow */
-          newContent.style.animation = null;
-
-          const newLink = mobileDetailsContainer.querySelector('.construct-link');
-          if (newLink) {
-            newLink.addEventListener('click', () => {
-              window.open(item.href, item.target || '_self');
-            });
-          }
+        if (!isLink) {
+          e.preventDefault();
         }
       });
     });
