@@ -1,5 +1,5 @@
 # [iamshift.dev](https://iamshift.dev) — Personal Identity System
-**let shift : Moin**
+**moin.shift()**
 
 `shift is standard // design is craft`
 
