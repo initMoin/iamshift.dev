@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>source — moin</title>
+
+  <link rel="stylesheet" href="source.css">
+</head>
+<body>
+
+  <!-- EXIT -->
+  <div class="source-exit-trigger">
+    <button id="exitToMain">
+      <span class="arrow">←</span>
+      <span class="cmd">zsh shift.sh</span>
+    </button>
+  </div>
+
+  <!-- CONTENT -->
+  <main class="source-wrap">
+
+    <div class="source-block">
+      <div class="source-label">working on</div>
+      <div class="source-body">
+        refining navigation thresholds<br>
+        removing mobile drift<br>
+        tightening transitions
+      </div>
+    </div>
+
+    <div class="source-block">
+      reading:<br>
+      thinking in systems<br>
+      revisiting first principles
+    </div>
+
+    <div class="source-block">
+      capturing:<br>
+      light, contrast, still frames
+    </div>
+
+    <div class="source-links">
+      <a href="https://instagram.com/YOUR_HANDLE" target="_blank">instagram →</a>
+      <a href="https://500px.com/YOUR_HANDLE" target="_blank">500px →</a>
+      <a href="https://github.com/YOUR_HANDLE" target="_blank">github →</a>
+      <a href="https://linkedin.com/in/YOUR_HANDLE" target="_blank">linkedin →</a>
+    </div>
+
+  </main>
+
+  <!-- TERMINAL -->
+  <div class="terminal-overlay" id="terminalOverlay">
+    <div class="terminal-content" id="terminalContent"></div>
+  </div>
+
+  <!-- INLINE SCRIPT -->
+  <script>
+    const lines = [
+      "[shift ~ %] su",
+      "Password:",
+      "[moin #] mv moin.shift() /usr/local/bin/",
+      "[moin #] chmod +x /usr/local/bin/moin.shift()",
+      "[moin #] echo 'export PATH=\\"/usr/local/bin:$PATH\\"' >> ~/.zshrc",
+      "[moin #] source ~/.zshrc",
+      "[moin #] moin.shift()"
+    ];
+
+    function runTerminal() {
+      const overlay = document.getElementById("terminalOverlay");
+      const container = document.getElementById("terminalContent");
+
+      overlay.classList.add("active");
+      container.innerHTML = "";
+
+      let i = 0;
+
+      function nextLine() {
+        if (i >= lines.length) {
+          setTimeout(() => {
+            overlay.style.background = "#000";
+            setTimeout(() => {
+              window.location.href = "/";
+            }, 180);
+          }, 500);
+          return;
+        }
+
+        const line = document.createElement("div");
+        line.textContent = lines[i];
+        container.appendChild(line);
+
+        i++;
+        setTimeout(nextLine, 220);
+      }
+
+      nextLine();
+    }
+
+    document.getElementById("exitToMain")
+    .addEventListener("click", runTerminal);
+
+    // KEY SEQUENCES
+    let keyBuffer = [];
+
+    window.addEventListener("keydown", (e) => {
+      keyBuffer.push(e.key.toLowerCase());
+      if (keyBuffer.length > 6) keyBuffer.shift();
+
+      const seq = keyBuffer.join("");
+
+      if (seq === "shift") {
+        window.location.href = "/";
+      }
+
+      if (seq === "moin") {
+        window.location.href = "/";
+      }
+    });
+  </script>
+
+</body>
+</html>
