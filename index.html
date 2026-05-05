@@ -1339,6 +1339,26 @@
     window.addEventListener("resize", () => {
       if (sideNav) sideNav.style.display = window.innerWidth <= 820 ? "none" : "";
     });
+
+    let touchMoved = false;
+
+    track.addEventListener("touchmove", () => {
+      touchMoved = true;
+    }, { passive: true });
+
+    items.forEach((item) => {
+      const link = item.dataset.link;
+      if (!link) return;
+
+      item.addEventListener("click", () => {
+        if (touchMoved) {
+          touchMoved = false;
+          return;
+        }
+
+        window.open(link, "_blank");
+      });
+    });
   </script>
 </body>
 </html>
