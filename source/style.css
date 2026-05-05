@@ -134,6 +134,42 @@ html, body {
   line-height: 1;
 }
 
+/* --- SOCIAL LINKS BASE --- */
+.source-links {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.source-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 10px;
+  text-decoration: none;
+
+  background: transparent;
+
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+/* ICON SIZE */
+.source-links a i {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+/* BRAND COLORS (DEFAULT STATE) */
+.source-links a[aria-label="Instagram"] { color: #e1306c; }
+.source-links a[aria-label="500px"] { color: var(--black); }
+.source-links a[aria-label="GitHub"] { color: #24292e; }
+.source-links a[aria-label="LinkedIn"] { color: #0075B5; }
+
 /* --- THE TELEMETRY MARGIN --- */
 .doc-telemetry {
   position: sticky;
@@ -396,6 +432,20 @@ html, body {
     transform: translateY(0); 
     transition: all 0.4s ease 0.3s;
   }
+
+  .source-links {
+    margin-top: 2rem;
+  }
+
+  .source-links a:hover {
+    color: var(--white); /* icon turns white */
+    transform: translateY(-2px);
+  }
+
+  .source-links a[aria-label="Instagram"]:hover { background: #e1306c; }
+  .source-links a[aria-label="500px"]:hover { background: var(--black); }
+  .source-links a[aria-label="GitHub"]:hover { background: #24292e; }
+  .source-links a[aria-label="LinkedIn"]:hover { background: #0075B5; }
 }
 
 /* Randomized Physics */
@@ -436,40 +486,6 @@ html, body {
   margin-top: 0.3rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .source-links {
-    margin-top: 2rem; 
-    padding-top: 0;
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem; 
-  }
-
-  .source-links a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 52px;
-    height: 52px;
-    font-size: 1.6rem;
-    color: var(--text-secondary);
-    text-decoration: none;
-    background-color: transparent;
-    border-radius: 2px;
-    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, border-radius 0.3s ease;
-  }
-
-  .source-links a:hover {
-    color: var(--white);
-    border-radius: 10px; 
-  }
-
-  .source-links a[aria-label="Instagram"]:hover { background-color: #e1306c; }
-  .source-links a[aria-label="500px"]:hover { background-color: var(--black); }
-  .source-links a[aria-label="GitHub"]:hover { background-color: #24292e; }
-  .source-links a[aria-label="LinkedIn"]:hover { background-color: #0075B5; }
 }
 
 /* --- THE HEAVY INTRO --- */
@@ -646,7 +662,7 @@ html, body {
 .terminal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.88);
+  background: rgba(0, 0, 0, 0.69);
   color: var(--white);
   display: none;
   z-index: 99999;
@@ -658,13 +674,24 @@ html, body {
 
 .terminal-content {
   position: absolute;
-  left: clamp(1.5rem, 6vw, 5rem);
-  top: 50%;
-  transform: translateY(-50%);
+
+  /* keep horizontal positioning behavior */
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(900px, 90vw);
+
+  /* anchor from the top so it doesn't shift */
+  top: clamp(80px, 18vh, 140px);
+
   font-family: 'Overpass Mono', monospace;
   font-size: clamp(0.85rem, 3vw, 1rem);
   line-height: 1.8;
   letter-spacing: 0.02em;
+
+  /* optional: align text left inside the centered block */
+  text-align: left;
+
+  white-space: pre-wrap;
 }
 
 .terminal-content div {
@@ -728,22 +755,21 @@ html, body {
     max-width: 100%;
   }
 
-  /* --- 3. SOCIAL LINKS: Permanently active on mobile --- */
   .source-links {
     margin-top: 1.5rem;
   }
 
-  .source-links a {
+  /* FORCE icon to white */
+  .source-links a,
+  .source-links a i {
     color: var(--white);
-    border-radius: 10px; /* Applies the squircle curve permanently */
-    transition: none; /* Kills hover/load animations */
   }
 
-  /* Locks in the brand backgrounds by default */
-  .source-links a[aria-label="Instagram"] { background-color: #e1306c; }
-  .source-links a[aria-label="500px"] { background-color: var(--black); }
-  .source-links a[aria-label="GitHub"] { background-color: #24292e; }
-  .source-links a[aria-label="LinkedIn"] { background-color: #0075B5; }
+  /* Brand backgrounds */
+  .source-links a[aria-label="Instagram"] { background: #e1306c; }
+  .source-links a[aria-label="500px"] { background: var(--black); }
+  .source-links a[aria-label="GitHub"] { background: #24292e; }
+  .source-links a[aria-label="LinkedIn"] { background: #0075B5; }
 
   /* --- 4. RAW FRAME: Permanently active on mobile --- */
   .raw-frame-container .exif-title,

@@ -449,7 +449,7 @@
             </div>
             <div class="self-right-col">
               <div class="section-body self-body-wrap">
-                <p>I am <span class="self-moin">Moinuddin Ahmad</span>, a designer and engineer building within the Apple ecosystem. I unite rigorous logic with intuitive design. <br><a href="/source" class="self-source-tag mono">cat iamshift.src ↗</a></p>
+                <p>I am <span class="self-moin">Moinuddin Ahmad</span>, a designer and engineer building within the Apple ecosystem. I unite rigorous logic with intuitive design. <br><a href="/source/" class="self-source-tag mono">cat iamshift.src ↗</a></p>
                 <p class="self-block-title mono">the principle</p>
                 <p class="self-body"><span class="self-shift">shift</span> is the discipline that manifests intent into precision and surgical action. I design through reduction and build through iteration, ensuring that every pixel and every line of code serves a definitive purpose.</p>
                 <p class="self-block-title mono">the stack</p>
@@ -860,12 +860,16 @@
     checkPWAAndBoot();
 
     function handleBootSkip(e) {
-      if (bootFinished || currentState !== BootState.BOOTING) return;
+      if (bootFinished || (currentState !== BootState.BOOTING && currentState !== BootState.SPLASH)) return;
+
       if (window.location.hash) return;
+
       if (e.type === "keydown" && !(e.code === "Space" || e.key === " ")) return;
+
       if (e.cancelable) e.preventDefault();
+
       removeBootListeners();
-      transitionTo(BootState.SPLASH);
+      transitionTo(BootState.HANDOFF);
     }
 
     function removeBootListeners() {
