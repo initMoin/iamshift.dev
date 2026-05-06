@@ -432,29 +432,27 @@
             <a href="https://www.instagram.com/moinuddin.here" target="_blank" class="social-icon" data-label="Instagram"><i class="ri-instagram-line"></i></a>
             <a href="https://www.linkedin.com/in/moinuddin-ahmad" target="_blank" class="social-icon" data-label="LinkedIn"></i><i class="ri-linkedin-fill"></i></a>
           </div>
+          <div class="self-left-col">
+            <a href="https://github.com/initMoin/iamshift" class="self-photo-link" target="_blank" rel="noopener noreferrer">
+              <div class="self-photo">
+                <img src="assets/moin.png" alt="Moinuddin Ahmad" title="Moinuddin Ahmad - iOS Developer & Designer">
+              </div>
+            </a>
+            <p class="self-minor-blurb mono">
+              iOS Developer &amp; Designer<br>
+              <em>Apple Ecosystem</em>
+            </p>
+          </div>
         </div>
         <div class="section-content self-content">
           <p class="section-lead self-lead">identity <span class="lead-dot">•</span> principle <span class="lead-dot">•</span> <em>the architect</em></p>
-          <div class="self-profile-block">
-            <div class="self-left-col">
-              <a href="https://github.com/initMoin/iamshift" class="self-photo-link" target="_blank" rel="noopener noreferrer">
-                <div class="self-photo">
-                  <img src="assets/moin.png" alt="Moinuddin Ahmad" title="Moinuddin Ahmad - iOS Developer & Designer">
-                </div>
-              </a>
-              <p class="self-minor-blurb mono">
-                iOS Developer &amp; Designer<br>
-                <em>Apple Ecosystem</em>
-              </p>
-            </div>
-            <div class="self-right-col">
-              <div class="section-body self-body-wrap">
-                <p>I am <span class="self-moin">Moinuddin Ahmad</span>, a designer and engineer building within the Apple ecosystem. I unite rigorous logic with intuitive design. <br><a href="/source/" class="self-source-tag mono">cat iamshift.src ↗</a></p>
-                <p class="self-block-title mono">the principle</p>
-                <p class="self-body"><span class="self-shift">shift</span> is the discipline that manifests intent into precision and surgical action. I design through reduction and build through iteration, ensuring that every pixel and every line of code serves a definitive purpose.</p>
-                <p class="self-block-title mono">the stack</p>
-                <p class="self-body">Mastery of Swift, SwiftUI, and system architecture grants me total control over the product cycle. From abstract concept to final release, I engineer systems that remain resilient and interfaces that perform seamlessly.</p>
-              </div>
+          <div class="self-right-col">
+            <div class="section-body self-body-wrap">
+              <p>I am <span class="self-moin">Moinuddin Ahmad</span>, a designer and engineer building within the Apple ecosystem. I unite rigorous logic with intuitive design. <br><a href="/source/" class="self-source-tag mono">cat iamshift.src ↗</a></p>
+              <p class="self-block-title mono">the principle</p>
+              <p class="self-body"><span class="self-shift">shift</span> is the discipline that manifests intent into precision and surgical action. I design through reduction and build through iteration, ensuring that every pixel and every line of code serves a definitive purpose.</p>
+              <p class="self-block-title mono">the stack</p>
+              <p class="self-body">Mastery of Swift, SwiftUI, and system architecture grants me total control over the product cycle. From abstract concept to final release, I engineer systems that remain resilient and interfaces that perform seamlessly.</p>
             </div>
           </div>
           <div class="section-foot self-foot">
@@ -1338,6 +1336,26 @@
 
     window.addEventListener("resize", () => {
       if (sideNav) sideNav.style.display = window.innerWidth <= 820 ? "none" : "";
+    });
+
+    let touchMoved = false;
+
+    track.addEventListener("touchmove", () => {
+      touchMoved = true;
+    }, { passive: true });
+
+    items.forEach((item) => {
+      const link = item.dataset.link;
+      if (!link) return;
+
+      item.addEventListener("click", () => {
+        if (touchMoved) {
+          touchMoved = false;
+          return;
+        }
+
+        window.open(link, "_blank");
+      });
     });
   </script>
 </body>

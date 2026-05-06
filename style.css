@@ -42,7 +42,6 @@
   --nav-hit-size: clamp(30px, 2.4vw, 32px);
   --nav-touch-size: clamp(2.2rem, 8vw, 2.6rem);
 
-  /* NAV TOKENS */
   --nav-dot-default: rgba(var(--white-rgb),0.4);
   --nav-dot-hover: rgba(var(--white-rgb),1);
   --nav-dot-active: var(--forge-orange);
@@ -76,7 +75,6 @@ html, body, .snap-container {
   scrollbar-width: none; 
 }
 
-/* LOCK THE ROOT: Reverts back to strict container math */
 html, body {
   height: 100vh;
   width: 100vw;
@@ -341,22 +339,10 @@ a {
   color: var(--black);
 }
 
-/*#bootWrapper {
-  position: fixed; inset: 0;
-  z-index: 100000;
-  background: var(--black);
-  padding: calc(var(--boot-wrapper-padding) + env(safe-area-inset-top)) 
-           var(--boot-wrapper-padding) 
-           calc(var(--boot-wrapper-padding) + env(safe-area-inset-bottom));
-  font-family: 'Overpass Mono', monospace;
-  overflow-y: auto;
-  display: block;
-}*/
-
 #bootWrapper {
   position: fixed; 
   inset: 0;
-  height: 100vh; /* Seals the bottom bleed */
+  height: 100vh;
   z-index: 100000;
   background: var(--black);
   padding: var(--boot-wrapper-padding);
@@ -529,7 +515,6 @@ a {
   opacity: 1;
 }
 
-/* PERMALINK STYLING */
 .section-title .permalink {
   color: inherit;
   text-decoration: none;
@@ -965,24 +950,6 @@ body.theme-init .g-word-parentheses {
   opacity: 1;
 }
 
-/*.pixel-tab-trigger {
-  font-family: 'Overpass Mono', monospace;
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: rgba(var(--white-rgb),0.45);
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.pixel-tab-trigger:hover {
-  color: rgba(var(--white-rgb),0.75);
-}
-
-.pixel-tab-trigger.active {
-  color: var(--white);
-}*/
-
 .pixel-tab-indicator {
   position: absolute;
   bottom: -6px;
@@ -1090,7 +1057,6 @@ body.theme-init .g-word-parentheses {
   scroll-snap-type: x mandatory;
   overscroll-behavior-x: contain;
   touch-action: pan-x;
-  /*touch-action: auto;*/
   scrollbar-width: none;
   justify-content: flex-start;
   scroll-padding-left: 0;
@@ -1114,48 +1080,19 @@ body.theme-init .g-word-parentheses {
   cursor: pointer;
 }
 
-/*.build-link {
-  position: static;
-  margin-top: 0.6rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: 'Overpass Mono', monospace;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--forge-orange);
-  opacity: 0.9;
-  transform: none;
-  pointer-events: auto;
-}
-.build-status {
-  position: static;
-  margin-top: 0.6rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem; /* Matches the spacing of .build-link /
-  font-family: 'Overpass Mono', monospace;
-  font-size: 1rem;
-  font-weight: 600;
-  color: rgba(var(--white-rgb), 0.5); /* Keeps the muted aesthetic /
-  cursor: default;
-}*/
-
-/* Shared structural properties */
 .build-link, 
 .build-status {
   position: static;
   margin-top: 0.6rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem; /* Ensures the arrow spacing matches perfectly */
+  gap: 0.4rem;
   
   font-family: 'Overpass Mono', monospace;
   font-size: 1rem;
   font-weight: 600;
 }
 
-/* Specific styling for active links */
 .build-link {
   color: var(--forge-orange);
   opacity: 0.9;
@@ -1163,7 +1100,6 @@ body.theme-init .g-word-parentheses {
   pointer-events: auto;
 }
 
-/* Specific styling for the inactive "untitled" status */
 .build-status {
   color: rgba(var(--white-rgb), 0.5);
   cursor: default;
@@ -1175,19 +1111,16 @@ body.theme-init .g-word-parentheses {
   margin-inline-end: var(--build-image-offset);
   height: auto;
   
-  /* Grayscale and slightly muted on load */
   filter: grayscale(1) saturate(0.8) contrast(0.9) brightness(0.9);
   transition: filter 350ms ease, transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
   will-change: filter, transform;
 }
 
 .build-item:hover .build-image img {
-  /* Pop to full color, high saturation, and gently rotate/scale */
   filter: grayscale(0) saturate(1.25) contrast(1.08) brightness(1.04);
   transform: rotate(3.5deg) scale(0.91);
 }
 
-/* Ensure the cursor changes to a pointer to indicate interactivity */
 .build-item[data-link] .build-image, 
 .build-item[data-link] .build-link {
   cursor: pointer;
@@ -1559,12 +1492,11 @@ body:not(.theme-self) .global-header {
   color: var(--forge-orange);
 }
 
-/* --- INLINE SOURCE TAG (GLOBAL) --- */
 .section-self .self-source-tag {
   display: inline-block; 
-  margin-left: 0; /* Reset to 0 so it aligns flush left */
-  margin-top: 0.6rem; /* Gives it breathing room below the text */
-  padding: 0.15em 0.5em 0.1em; 
+  margin-left: 0;
+  margin-top: 0.6rem;
+  padding: 0.2em 0.5em 0.1em; 
   border-radius: 0.15em;
   font-size: 0.85em;
   font-weight: 600;
@@ -1577,7 +1509,6 @@ body:not(.theme-self) .global-header {
   -webkit-tap-highlight-color: transparent; 
 }
 
-/* STRICT QUARANTINE: Hover only applies to actual mouse cursors */
 @media (hover: hover) and (pointer: fine) {
   .section-self .self-source-tag:hover {
     background: var(--black);
@@ -1593,12 +1524,8 @@ body:not(.theme-self) .global-header {
   width: 100%;
 }
 
-.self-profile-block {
-  display: grid;
-  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
-  gap: 3rem;
-  align-items: start;
-  width: 100%;
+.section-self .self-left-col {
+  margin-top: 3.5rem; 
 }
 
 .self-left-col {
@@ -2369,7 +2296,6 @@ body.ping-sent .section-ping .ping-form button {
   max-width: 104ch;
 }
 
-/* --- FUNCTIONAL TYPOGRAPHY: SCALE --- */
 .section-content .section-body p {
   font-family: 'Aleo', serif;
   font-size: clamp(1.45rem, 1.8vw, 1.65rem);
@@ -2471,18 +2397,6 @@ body.theme-self [class*="-landmark-wrap"] .section-body p {
   transform: translateY(0.05em);
 }
 
-/*.build-image img {
-  transition: filter 220ms ease, transform 220ms ease;
-}
-
-.build-image img {
-  filter: saturate(0.92) contrast(0.96);
-}
-
-.build-item:hover .build-image img {
-  filter: saturate(1.25) contrast(1.08) brightness(1.04);
-}*/
-
 .section-social-links {
   display: flex;
   align-items: center;
@@ -2518,7 +2432,6 @@ body.theme-ping  { background: #050505; }
    NAV STATE TOKENS (PER SECTION)
 ================================ */
 
-/* DARK SECTIONS: code, pixel, build, echo, ping */
 body.theme-code,
 body.theme-pixel,
 body.theme-build,
@@ -2535,7 +2448,6 @@ body.theme-ping {
   --nav-circle-active: var(--black);
 }
 
-/* INIT */
 body.theme-init {
   --nav-dot-default: rgba(var(--white-rgb),0.5);
   --nav-dot-hover: var(--white);
@@ -2548,7 +2460,6 @@ body.theme-init {
   --nav-circle-active: var(--forge-orange);
 }
 
-/* SELF */
 body.theme-self {
   --nav-dot-default: rgba(var(--black-rgb),0.4);
   --nav-dot-hover: var(--black);
@@ -2707,17 +2618,14 @@ body.theme-ping  { --section-bg: #050505; }
   --glass-border: rgba(var(--white-rgb), 0.08);
 }
 
-/* DARK SECTIONS: */
 body.theme-code  { --glass-bg: rgba(255, 255, 255, 0.05); --glass-border: rgba(255, 255, 255, 0.08); }
 body.theme-pixel { --glass-bg: rgba(255, 255, 255, 0.04); --glass-border: rgba(255, 255, 255, 0.06); }
 body.theme-build { --glass-bg: rgba(255, 255, 255, 0.05); --glass-border: rgba(255, 255, 255, 0.08); }
 body.theme-echo  { --glass-bg: rgba(255, 255, 255, 0.04); --glass-border: rgba(255, 255, 255, 0.06); }
 body.theme-ping  { --glass-bg: rgba(255, 255, 255, 0.05); --glass-border: rgba(255, 255, 255, 0.08); }
 
-/* VIBRANT SECTION (init): */
 body.theme-init  { --glass-bg: rgba(0, 0, 0, 0.15); --glass-border: rgba(255, 255, 255, 0.18); }
 
-/* LIGHT SECTION (self): */
 body.theme-self  { --glass-bg: rgba(255, 255, 255, 0.75); --glass-border: rgba(0, 0, 0, 0.08); }
 
 .global-header {
@@ -2776,8 +2684,6 @@ body.theme-self  { --glass-bg: rgba(255, 255, 255, 0.75); --glass-border: rgba(0
     --mobile-section-block-start: calc(env(safe-area-inset-top) + 120px);
     --mobile-section-block-end: calc(env(safe-area-inset-bottom) + 80px);
   }
-
-  /* --- 2. GLOBAL HEADER & UI ADJUSTMENTS --- */
   
   .global-header {
     top: 0;
@@ -2785,7 +2691,6 @@ body.theme-self  { --glass-bg: rgba(255, 255, 255, 0.75); --glass-border: rgba(0
     right: 0;
     width: auto;
     padding-top: 0;
-    /*padding-top: max(env(safe-area-inset-top), 47px);*/
     height: calc(max(env(safe-area-inset-top), 47px) + 20px + var(--logo-size) + 20px);
     background: rgba(var(--black-rgb), 0.23);
     backdrop-filter: blur(6px);
@@ -2835,7 +2740,6 @@ body.theme-self  { --glass-bg: rgba(255, 255, 255, 0.75); --glass-border: rgba(0
     scroll-snap-stop: always;
     min-height: 100%;
 
-    /* Break out properties with explicit fallbacks to prevent syntax failure */
     padding-top: calc(max(env(safe-area-inset-top), 47px) + var(--logo-size-mobile) + 70px) !important;
     padding-bottom: calc(max(env(safe-area-inset-bottom), 34px) + 80px) !important;
     padding-left: var(--mobile-section-inline-start) !important;
@@ -2862,7 +2766,6 @@ body.theme-self  { --glass-bg: rgba(255, 255, 255, 0.75); --glass-border: rgba(0
     );
   }
   
-  /* --- 3. UNIVERSAL GRID FLATTENING & MASTER SPACING --- */
   .init-grid, .code-grid, .pixel-grid, .build-grid, .echo-grid, .self-grid, .ping-grid {
     display: flex;
     flex-direction: column;
@@ -2889,16 +2792,15 @@ body.theme-self  { --glass-bg: rgba(255, 255, 255, 0.75); --glass-border: rgba(0
   .ping-info                { order: 12; margin: 0; padding-top: 1.5rem; padding-bottom: 1rem; border-top: 1px solid rgba(var(--white-rgb),0.06); border-bottom: none; } 
   .system-ready             { order: 99; margin: 3rem 0 0 0 !important; }
 
-  /* --- 4. SECTION-SPECIFIC OVERRIDES --- */
-
-  /* Self: Circular Image & Centered Layout */
   .self-left-col { 
-    order: 4; display: flex; flex-direction: column; 
+    order: 5; display: flex; flex-direction: column; 
     align-items: center; text-align: center; width: 100%; margin-bottom: 1.5rem;
+    margin-top: 0;
   }
   .self-right-col { order: 5; }
-  .self-foot { order: 6; margin-top: clamp(0.9rem, 3svh, 1.25rem); }
-  .self-body-wrap { margin-bottom: 0; }
+  .self-body-wrap { order: 6; margin-bottom: 0; }
+  .self-foot { order: 7; margin-top: clamp(0.9rem, 3svh, 1.25rem); }
+  
   
   .self-photo { 
     max-width: 200px; width: 100%; aspect-ratio: 1 / 1; 
@@ -2906,7 +2808,6 @@ body.theme-self  { --glass-bg: rgba(255, 255, 255, 0.75); --glass-border: rgba(0
   }
   .self-photo img { width: 100%; height: 100%; object-fit: cover; }
 
-  /* Ping: Strict Absolute Order */
   .section-ping .section-title { order: 1; }
   .section-ping .ping-meta-id { order: 2; }
   .section-ping .section-social-links { order: 3; }
@@ -2917,7 +2818,6 @@ body.theme-self  { --glass-bg: rgba(255, 255, 255, 0.75); --glass-border: rgba(0
   .section-ping .ping-info { order: 8; }
   .section-ping .system-ready { order: 9; }
 
-  /* --- 5. build: TABBED UI --- */
   .build-showcase { width: 100%; margin-top: 0.75rem; margin-left: 0; }
   .build-mobile-details .build-item-details, .build-mobile-details .build-desc { min-height: auto; }
   .build-mobile-details .build-item-details { display: flex; padding-left: 0; gap: 0.5rem; --build-type-scale: 1.1; animation: buildFadeIn 0.35s cubic-bezier(0.65,0,0.35,1) forwards; }
@@ -2965,7 +2865,6 @@ body.theme-self  { --glass-bg: rgba(255, 255, 255, 0.75); --glass-border: rgba(0
   }
 
   .section-build .build-image { width: 100% !important; height: auto !important; }
-  /*.section-build .build-image img { filter: saturate(1.2) contrast(1.1) brightness(1.03) !important; transition: filter 0.4s cubic-bezier(0.2, 0, 0.2, 1); }*/
 
   .build-mobile-details .build-item-details { display: flex !important; flex-direction: column; opacity: 1; margin-top: 1.5rem; transform: translateY(-15px); animation: buildFadeIn 0.4s ease forwards; }
   .build-item-details { margin-top: 0.6rem; gap: 0.35rem; opacity: 0.7; transition: opacity 0.25s ease, transform 0.25s ease; display: none; }
